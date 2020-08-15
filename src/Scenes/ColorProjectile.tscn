@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/ColorProjectile.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.51848
+height = 7.0265
+
+[node name="ColorProjectile" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 3.48041, 2.70747 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.283973, 0.463142 )
+texture = ExtResource( 1 )
+[connection signal="area_shape_entered" from="." to="." method="_on_ColorProjectile_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_ColorProjectile_body_entered"]

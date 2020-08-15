@@ -1,3 +1,50 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="VisualShaderNodeVec3Constant" id=1]
+constant = Vector3( 0.4, 1, 0.7 )
+
+[sub_resource type="VisualShaderNodeScalarConstant" id=2]
+constant = 1.0
+
+[sub_resource type="VisualShader" id=3]
+code = "shader_type spatial;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Vector:2
+	vec3 n_out2p0 = vec3(0.400000, 1.000000, 0.700000);
+
+// Scalar:3
+	float n_out3p0 = 1.000000;
+
+// Output:0
+	ALBEDO = n_out2p0;
+	METALLIC = n_out3p0;
+	SPECULAR = n_out3p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -19, 77.5 )
+nodes/fragment/0/position = Vector2( 700, 80 )
+nodes/fragment/2/node = SubResource( 1 )
+nodes/fragment/2/position = Vector2( 180, 180 )
+nodes/fragment/3/node = SubResource( 2 )
+nodes/fragment/3/position = Vector2( 300, 300 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 3, 0, 0, 2, 3, 0, 0, 4 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
 
 [node name="ColorPickup" type="Node2D"]
+material = SubResource( 4 )
