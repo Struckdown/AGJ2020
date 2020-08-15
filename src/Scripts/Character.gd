@@ -2,12 +2,21 @@ extends KinematicBody2D
 
 var speed = 200  # speed in pixels/sec
 var velocity = Vector2.ZERO
+
 var currentCharge = 0
 var chargeRate = 2
 var minCharge = 35
 var maxCharge = 100
 var bowLength = 25
 export (PackedScene) var projectile
+
+var colorEquipped
+var colorNone = Color(0, 0, 0)
+var colorRed = Color(255, 0, 0)
+var colorGreen = Color(0, 255, 0)
+var colorBlue = Color(0, 0, 255)
+#var colorYellow = Color(255, 255, 0)
+
 var newAnim
 var curAnim
 enum {LEFT, UP, DOWN, RIGHT}
@@ -15,6 +24,7 @@ enum {LEFT, UP, DOWN, RIGHT}
 func _ready():
 	updateBow()
 	currentCharge = 0
+	colorEquipped = colorBlue
 
 func get_input():
 	velocity = Vector2.ZERO
@@ -36,6 +46,7 @@ func get_input():
 	velocity = velocity.normalized() * speed
 
 	if Input.is_action_pressed("shoot"):
+		updateBow()
 		charge()
 	if Input.is_action_just_released("shoot"):
 		updateBow()
@@ -51,6 +62,7 @@ func _physics_process(_delta):
 
 func charge():
 	currentCharge = clamp(currentCharge+chargeRate, minCharge, maxCharge)
+	$BowAnimPlayer.play("BowCharge")
 
 func shoot():
 	$BowAnimPlayer.play("BowFire")
@@ -64,6 +76,7 @@ func shoot():
 	b.transform = transform
 	b.rotation  = get_angle_to(get_global_mouse_position())
 	b.applyCharge(float(currentCharge)/float(maxCharge))
+	b.color = colorEquipped
 	
 	currentCharge = 0;
 	
