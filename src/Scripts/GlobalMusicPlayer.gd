@@ -1,5 +1,8 @@
 extends AudioStreamPlayer
 
+var MUSIC_LEVEL = 0
+var SILENT_LEVEL = -80
+
 
 var songLevel = 1
 var desiredLevel = 1
@@ -10,6 +13,7 @@ var finishedTransition = false
 var songPath
 var newSong
 
+var endingSongPlaying = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -57,3 +61,17 @@ func _on_GlobalMusicPlayer_finished():
 	print("Now playing: " + songPath)
 
 	shouldTransition = false
+
+func transitionToEndingSong():
+	$Tween.interpolate_property(self, "volume_db", MUSIC_LEVEL, SILENT_LEVEL, 10, Tween.TRANS_LINEAR, Tween.EASE_IN, 0)
+	$Tween2.interpolate_property($SecondaryAudio, "volume_db", SILENT_LEVEL, MUSIC_LEVEL, 2, Tween.TRANS_LINEAR, Tween.EASE_IN, 0)
+	songLevel = -1
+	desiredLevel = -1
+	$Tween.start()
+	$Tween2.start()
+	$SecondaryAudio.play()
+
+
+func _on_Tween_tween_completed(object, key):
+	if !endingSongPlaying:
+		endingSongPlaying = true
