@@ -10,7 +10,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_right = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_right = 48.0
 margin_bottom = 14.0
 text = "Points: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
