@@ -1,0 +1,158 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Art/tiles.png" type="Texture" id=1]
+
+[node name="Tiles" type="Node2D"]
+
+[node name="Grass1" type="Sprite" parent="."]
+position = Vector2( 20.1587, 22.0486 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+
+[node name="Grass2" type="Sprite" parent="."]
+position = Vector2( 57.9564, 22.0486 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 1
+
+[node name="Grass3" type="Sprite" parent="."]
+position = Vector2( 97.9589, 22.0486 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 2
+
+[node name="Grass4" type="Sprite" parent="."]
+position = Vector2( 20.1587, 60.1612 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 15
+
+[node name="Grass5" type="Sprite" parent="."]
+position = Vector2( 57.9564, 60.1612 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 16
+
+[node name="Grass6" type="Sprite" parent="."]
+position = Vector2( 97.9588, 60.1612 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 17
+
+[node name="Grass7" type="Sprite" parent="."]
+position = Vector2( 21.4186, 95.124 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 30
+
+[node name="Grass8" type="Sprite" parent="."]
+position = Vector2( 57.3264, 95.124 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 31
+
+[node name="Grass9" type="Sprite" parent="."]
+position = Vector2( 96.6989, 95.124 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 32
+
+[node name="Dirt1" type="Sprite" parent="."]
+position = Vector2( 21.4186, 135.127 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 60
+
+[node name="Dirt2" type="Sprite" parent="."]
+position = Vector2( 57.9563, 134.497 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 61
+
+[node name="Dirt3" type="Sprite" parent="."]
+position = Vector2( 93.8641, 134.497 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 62
+
+[node name="Dirt4" type="Sprite" parent="."]
+position = Vector2( 21.4186, 171.034 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 75
+
+[node name="Dirt5" type="Sprite" parent="."]
+position = Vector2( 57.9563, 171.034 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 76
+
+[node name="Dirt6" type="Sprite" parent="."]
+position = Vector2( 93.2341, 171.034 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 77
+
+[node name="Dirt7" type="Sprite" parent="."]
+position = Vector2( 21.7336, 205.367 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 90
+
+[node name="Dirt8" type="Sprite" parent="."]
+position = Vector2( 59.5312, 205.367 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 91
+
+[node name="Dirt9" type="Sprite" parent="."]
+position = Vector2( 95.7539, 205.367 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 92
+
+[node name="Sidewalk1" type="Sprite" parent="."]
+position = Vector2( 21.1036, 243.48 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 120
+
+[node name="Sidewalk2" type="Sprite" parent="."]
+position = Vector2( 60.1036, 243.48 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 121
+
+[node name="Sidewalk3" type="Sprite" parent="."]
+position = Vector2( 98.1036, 243.48 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 122
+
+[node name="Sidewalk4" type="Sprite" parent="."]
+position = Vector2( 136.354, 243.48 )
+texture = ExtResource( 1 )
+vframes = 15
+hframes = 15
+frame = 123
