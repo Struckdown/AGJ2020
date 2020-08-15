@@ -18,5 +18,6 @@ func objectColored():
 	objectsColored += 1
 	UI.score += 1
 	UI.update()
+	GlobalMusicPlayer.transitionToNextSong()
 	if objectsColored >= winAmount:
 		var _error = get_tree().change_scene("res://Scenes/VictoryLevel.tscn")
