@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Art/pl_front.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Art/pl_side.png" type="Texture" id=5]
 [ext_resource path="res://Art/rainBow.png" type="Texture" id=6]
 [ext_resource path="res://Music/SFX/bow_fire_1.wav" type="AudioStream" id=7]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.4722, 24.1308 )
@@ -131,6 +132,7 @@ current = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
+script = ExtResource( 8 )
 
 [node name="RaineAnimPlayer" type="AnimationPlayer" parent="."]
 autoplay = "upAnim"

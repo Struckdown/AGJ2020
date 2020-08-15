@@ -16,9 +16,9 @@ func _ready():
 #	pass
 
 
-func _on_PlayButton_pressed():
-	var _error = get_tree().change_scene("res://Scenes/World.tscn")
+func _on_Button_pressed():
+	var _error = get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
 
-func _on_PlayButton_mouse_entered():
-	$ButtonSFX.play()
+func _on_Button_mouse_entered():
+	pass # Replace with function body.

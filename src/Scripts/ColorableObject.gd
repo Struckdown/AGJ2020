@@ -9,11 +9,11 @@ var signalEmitted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var children = get_tree().root.get_child(0).get_children()
+	var children = get_tree().root.get_child(1).get_children()
 	for child in children:
 		if child.is_in_group("levelManager"):
 			levelManager = child
-			connect("colored", levelManager, "objectColored")
+			var _error = connect("colored", levelManager, "objectColored")
 
 	var mat = get_node("Sprite").get_material().duplicate(true)
 	get_node("Sprite").set_material(mat)
@@ -24,7 +24,7 @@ func _ready():
 
 
 func increaseColor(color):
-	if color == acceptableColor or true:	# TODO Remove true, set acceptable color
+	if (color == acceptableColor) or true:	# TODO Remove true, set acceptable color
 		colorFraction += 0.2
 		colorFraction = min(colorFraction, 1)
 		$Sprite.material.set_shader_param("ColorLevel", colorFraction)

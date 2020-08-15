@@ -1,7 +1,7 @@
 extends Node
 
 var objectsColored = 0
-var winAmount = 10
+var winAmount = 3
 export(NodePath) var UI_Path
 var UI
 
@@ -19,4 +19,4 @@ func objectColored():
 	UI.score += 1
 	UI.update()
 	if objectsColored >= winAmount:
-		print("You win")
+		var _error = get_tree().change_scene("res://Scenes/VictoryLevel.tscn")
