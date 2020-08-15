@@ -19,6 +19,10 @@ config/name="Color World"
 run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalMusicPlayer="*res://Scenes/GlobalMusicPlayer.tscn"
+
 [display]
 
 window/size/width=480

@@ -46,6 +46,9 @@ func _physics_process(_delta):
 
 func shoot():
 	$BowAnimPlayer.play("BowFire")
+	var i = randi() % 2 + 1
+	var bowFireSound = load("res://Music/SFX/bow_fire_" + str(i) + ".wav")
+	$BowSFX.stream = bowFireSound
 	$BowSFX.play()
 	var b = projectile.instance()
 	get_parent().add_child(b)

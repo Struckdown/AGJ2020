@@ -2,7 +2,7 @@ extends Node2D
 
 var colorFraction = 0
 var levelManager
-
+var acceptableColor
 signal colored
 var signalEmitted = false
 
@@ -23,10 +23,25 @@ func _ready():
 #	pass
 
 
-func increaseColor():
-	colorFraction += 0.2
-	colorFraction = min(colorFraction, 1)
-	$Sprite.material.set_shader_param("ColorLevel", colorFraction)
-	if colorFraction >= 1 and !signalEmitted:
-		signalEmitted = true
-		emit_signal("colored")
+func increaseColor(color):
+	if color == acceptableColor or true:	# TODO Remove true, set acceptable color
+		colorFraction += 0.2
+		colorFraction = min(colorFraction, 1)
+		$Sprite.material.set_shader_param("ColorLevel", colorFraction)
+		playHitSound(true)
+		if colorFraction >= 1 and !signalEmitted:
+			signalEmitted = true
+			emit_signal("colored")
+	else:
+		playHitSound(false)
+
+
+func playHitSound(isCorrect):
+	var i = randi() % 2 + 1
+	var hitSound
+	if isCorrect:
+		hitSound = load("res://Music/SFX/hit_valid_target_" + str(i) + ".wav")
+	else:
+		hitSound = load("res://Music/SFX/hit_invalid_target_" + str(i) + ".wav")
+	$AudioStreamPlayer2D.stream = hitSound
+	$AudioStreamPlayer2D.play()

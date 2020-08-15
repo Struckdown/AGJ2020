@@ -18,5 +18,5 @@ func _on_ColorProjectile_body_entered(body):
 
 func _on_ColorProjectile_area_shape_entered(_area_id, area, _area_shape, _self_shape):
 	if area.is_in_group("colorable"):
-		area.get_parent().increaseColor()
+		area.get_parent().increaseColor(color)
 		queue_free()
