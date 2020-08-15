@@ -2,14 +2,18 @@ extends Node2D
 
 var colorFraction = 0
 var levelManager
-export (NodePath) var levelManagerLink
 
 signal colored
+var signalEmitted = false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	levelManager = get_node(levelManagerLink)
+	var children = get_tree().root.get_child(0).get_children()
+	for child in children:
+		if child.is_in_group("levelManager"):
+			levelManager = child
+			connect("colored", levelManager, "objectColored")
 
 	var mat = get_node("Sprite").get_material().duplicate(true)
 	get_node("Sprite").set_material(mat)
@@ -23,6 +27,6 @@ func increaseColor():
 	colorFraction += 0.2
 	colorFraction = min(colorFraction, 1)
 	$Sprite.material.set_shader_param("ColorLevel", colorFraction)
-	if colorFraction >= 1:
-		emit_signal("colored")	# TODO finish this
-		levelManager.objectColored()
+	if colorFraction >= 1 and !signalEmitted:
+		signalEmitted = true
+		emit_signal("colored")

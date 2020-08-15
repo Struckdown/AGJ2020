@@ -14,14 +14,9 @@ func _on_ColorProjectile_body_entered(body):
 	if body.has_method("color"):
 		body.color(color)
 		queue_free()
-	else:
-		print("No color on this body!")
 
 
-func _on_ColorProjectile_area_shape_entered(area_id, area, area_shape, self_shape):
+func _on_ColorProjectile_area_shape_entered(_area_id, area, _area_shape, _self_shape):
 	if area.is_in_group("colorable"):
 		area.get_parent().increaseColor()
 		queue_free()
-		print("COLORED")
-	else:
-		print("No color!")

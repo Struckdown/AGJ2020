@@ -11,7 +11,9 @@ extents = Vector2( 30.4973, 32.4031 )
 shader = ExtResource( 3 )
 shader_param/ColorLevel = 0.0
 
-[node name="ColorableObject" type="Node2D"]
+[node name="ColorableObject" type="Node2D" groups=[
+"colorable",
+]]
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="." groups=[

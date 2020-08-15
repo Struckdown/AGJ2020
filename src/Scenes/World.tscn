@@ -16,15 +16,12 @@ scale = Vector2( 0.315819, 0.315819 )
 
 [node name="ColorableObject3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 318.272, 37.2175 )
-levelManagerLink = NodePath("../LevelManager")
 
 [node name="ColorableObject2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 405.677, 177.596 )
-levelManagerLink = NodePath("../LevelManager")
 
 [node name="ColorableObject" parent="." instance=ExtResource( 3 )]
 position = Vector2( 51.8168, 199.845 )
-levelManagerLink = NodePath("../LevelManager")
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
 

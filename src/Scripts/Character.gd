@@ -21,7 +21,7 @@ func get_input():
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	velocity = move_and_slide(velocity)
 

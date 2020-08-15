@@ -14,4 +14,4 @@ func _ready():
 
 
 func update():
-	$Label.text = "Points:" + str(score)
+	$CanvasLayer/Label.text = "Points:" + str(score)
