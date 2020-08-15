@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/collect_blue.wav-a91130e8a8f75085c8b459b15f4156cc.sample"
+
+[deps]
+
+source_file="res://Music/SFX/collect_blue.wav"
+dest_files=[ "res://.import/collect_blue.wav-a91130e8a8f75085c8b459b15f4156cc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
