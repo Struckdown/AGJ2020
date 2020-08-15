@@ -2,6 +2,7 @@ extends AudioStreamPlayer
 
 
 var songLevel = 1
+var desiredLevel = 1
 var shouldTransition = false
 var isTransitioning = false
 var finishedTransition = false
@@ -21,11 +22,14 @@ func _ready():
 #	pass
 
 func transitionToNextSong():
-	shouldTransition = true
+	desiredLevel += 1
 
 
 # Called when a track finishes. Decide if to loop or play the next song
-func _on_GlobalMusicPlayer_finished():	
+func _on_GlobalMusicPlayer_finished():
+	if songLevel != desiredLevel:
+		shouldTransition = true
+
 	if isTransitioning:
 		isTransitioning = false
 		finishedTransition = true
@@ -50,5 +54,6 @@ func _on_GlobalMusicPlayer_finished():
 		finishedTransition = false
 		isTransitioning = false
 
+	print("Now playing: " + songPath)
 
 	shouldTransition = false
