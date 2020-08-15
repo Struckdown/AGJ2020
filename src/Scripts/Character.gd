@@ -3,6 +3,8 @@ extends KinematicBody2D
 var speed = 200  # speed in pixels/sec
 var velocity = Vector2.ZERO
 var currentCharge = 0
+var chargeRate = 2
+var minCharge = 35
 var maxCharge = 100
 var bowLength = 25
 export (PackedScene) var projectile
@@ -33,13 +35,11 @@ func get_input():
 	# Make sure diagonal movement isn't faster
 	velocity = velocity.normalized() * speed
 
-	#if Input.is_action_just_pressed("shoot"):
-		#shoot()
-	
+	if Input.is_action_pressed("shoot"):
+		charge()
 	if Input.is_action_just_released("shoot"):
 		updateBow()
 		shoot()
-		currentCharge = 0
 		
 	if newAnim != curAnim:
 		$RaineAnimPlayer.play(newAnim)
@@ -49,16 +49,22 @@ func _physics_process(_delta):
 	get_input()
 	velocity = move_and_slide(velocity)
 
+func charge():
+	currentCharge = clamp(currentCharge+chargeRate, minCharge, maxCharge)
+
 func shoot():
 	$BowAnimPlayer.play("BowFire")
 	var i = randi() % 2 + 1
 	var bowFireSound = load("res://Music/SFX/bow_fire_" + str(i) + ".wav")
 	$BowSFX.stream = bowFireSound
 	$BowSFX.play()
+	
 	var b = projectile.instance()
 	get_parent().add_child(b)
 	b.transform = transform
 	b.rotation  = get_angle_to(get_global_mouse_position())
+	b.applyCharge(float(currentCharge)/float(maxCharge))
+	
 	currentCharge = 0;
 	
 
