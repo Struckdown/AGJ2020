@@ -15,8 +15,16 @@ _global_script_class_icons={
 
 [application]
 
-config/name="OwlbearGang"
+config/name="Color World"
+run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=480
+window/size/height=270
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [rendering]
 
