@@ -22,3 +22,7 @@ func _on_PlayButton_pressed():
 
 func _on_PlayButton_mouse_entered():
 	$ButtonSFX.play()
+
+
+func _on_ExitBtn_pressed():
+	get_tree().quit()
