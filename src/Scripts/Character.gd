@@ -2,13 +2,17 @@ extends KinematicBody2D
 
 var speed = 200  # speed in pixels/sec
 var velocity = Vector2.ZERO
+var currentCharge = 0
+var maxCharge = 100
+var bowLength = 25
 export (PackedScene) var projectile
 var newAnim
 var curAnim
 enum {LEFT, UP, DOWN, RIGHT}
 
 func _ready():
-	updateBow("left")
+	updateBow()
+	currentCharge = 0
 
 func get_input():
 	velocity = Vector2.ZERO
@@ -16,25 +20,26 @@ func get_input():
 		velocity.x += 1
 		newAnim = "sideAnim"
 		$Raine.flip_h = false
-		updateBow(RIGHT)
 	if Input.is_action_pressed('left'):
 		velocity.x -= 1
 		newAnim = "sideAnim"
 		$Raine.flip_h = true
-		updateBow(LEFT)
 	if Input.is_action_pressed('down'):
 		velocity.y += 1
 		newAnim = "downAnim"
-		updateBow(DOWN)
 	if Input.is_action_pressed('up'):
 		velocity.y -= 1
 		newAnim = "upAnim"
-		updateBow(UP)
 	# Make sure diagonal movement isn't faster
 	velocity = velocity.normalized() * speed
 
-	if Input.is_action_just_pressed("shoot"):
+	#if Input.is_action_just_pressed("shoot"):
+		#shoot()
+	
+	if Input.is_action_just_released("shoot"):
+		updateBow()
 		shoot()
+		currentCharge = 0
 		
 	if newAnim != curAnim:
 		$RaineAnimPlayer.play(newAnim)
@@ -54,20 +59,12 @@ func shoot():
 	get_parent().add_child(b)
 	b.transform = transform
 	b.rotation  = get_angle_to(get_global_mouse_position())
+	currentCharge = 0;
 	
 
 # take in enum direction
-func updateBow(dir):
-	match dir:
-		RIGHT:
-			$"Rain Bow".offset = Vector2(25, 0)
-			$"Rain Bow".frame = 3
-		LEFT:
-			$"Rain Bow".offset = Vector2(-25, 0)
-			$"Rain Bow".frame = 1
-		DOWN:
-			$"Rain Bow".offset = Vector2(0, 25)
-			$"Rain Bow".frame = 0
-		UP:
-			$"Rain Bow".offset = Vector2(0, -25)
-			$"Rain Bow".frame = 2
+func updateBow():
+	$"Rain Bow".frame = 3
+	$"Rain Bow".rotation = get_angle_to(get_global_mouse_position())
+	#$"Rain Bow".offset = Vector2(bowOffset, 0)
+	$"Rain Bow".offset = Vector2(bowLength, 0)
