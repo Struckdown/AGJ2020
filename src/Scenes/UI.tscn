@@ -9,25 +9,48 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+time_label_node = NodePath("CanvasLayer/PanelContainer_Time/Time")
+points_label_node = NodePath("CanvasLayer/PanelContainer_Points/Points")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-margin_right = 48.0
-margin_bottom = 14.0
-text = "Points: "
+[node name="PanelContainer_Time" type="PanelContainer" parent="CanvasLayer"]
+margin_left = 5.0
+margin_top = 238.0
+margin_right = 50.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Time" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = -1.0
-margin_top = 248.0
-margin_right = 53.0
-margin_bottom = 271.0
+[node name="Time" type="Label" parent="CanvasLayer/PanelContainer_Time"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 38.0
+margin_bottom = 21.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="PanelContainer_Points" type="PanelContainer" parent="CanvasLayer"]
+margin_left = 5.12717
+margin_top = 5.45449
+margin_right = 67.1272
+margin_bottom = 33.4545
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Points" type="Label" parent="CanvasLayer/PanelContainer_Points"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 55.0
+margin_bottom = 21.0
+text = "Points: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
