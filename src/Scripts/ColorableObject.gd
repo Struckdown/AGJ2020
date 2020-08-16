@@ -26,7 +26,7 @@ func _ready():
 
 func increaseColor(color):
 	if (color == acceptableColor):
-		colorFraction += 0.2
+		colorFraction += 0.25
 		colorFraction = min(colorFraction, 1)
 		$Sprite.material.set_shader_param("ColorLevel", colorFraction)
 		playHitSound(true)
@@ -41,9 +41,12 @@ func playHitSound(isCorrect):
 	var i = randi() % 2 + 1
 	var hitSound
 	if isCorrect:
-		timesHit = min(timesHit+1, 3)
-		i = timesHit
-		hitSound = load("res://Music/SFX/hit_valid_inc_" + str(i) + ".wav")
+		timesHit = min(timesHit+1, 4)
+		if timesHit < 4:
+			i = timesHit
+			hitSound = load("res://Music/SFX/hit_valid_inc_" + str(i) + ".wav")
+		else:
+			hitSound = load("res://Music/SFX/hit_valid_target_" + str(i) + ".wav")
 	else:
 		hitSound = load("res://Music/SFX/hit_invalid_target_" + str(i) + ".wav")
 	$AudioStreamPlayer2D.stream = hitSound
