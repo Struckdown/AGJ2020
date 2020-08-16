@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/FadeinLayer.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/Prop.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Win Control.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 6 )
@@ -296,6 +297,7 @@ partsBetweenUpdates = 1
 UI_Path = NodePath("../UI")
 tileMap_Path = NodePath("../TileMap")
 player_Path = NodePath("../Character")
+win_menu_path = NodePath("../Win Menu")
 
 [node name="ColorPickup" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1269.3, 164.242 )
@@ -318,8 +320,12 @@ continue_button_node = NodePath("../Pause Menu/PauseMenuLayer/CenterContainer/Pa
 main_menu_button_node = NodePath("../Pause Menu/PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Main_Menu_Button")
 application_close_button_node = NodePath("../Pause Menu/PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Application_Close_Button")
 mouseover_soundeffect_node = NodePath("../Pause Menu/mouseover_soundeffect")
+win_menu_node = NodePath("../Win Menu")
 
 [node name="FadeinLayer" parent="." instance=ExtResource( 12 )]
+
+[node name="Win Menu" parent="." instance=ExtResource( 15 )]
+time_node = NodePath("../StopwatchTimer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

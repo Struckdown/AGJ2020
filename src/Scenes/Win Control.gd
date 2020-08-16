@@ -11,38 +11,45 @@ export(NodePath) var mouseover_soundeffect_node
 onready var mouseover_soundeffect: AudioStreamPlayer = (get_node(mouseover_soundeffect_node) as AudioStreamPlayer)
 export(String, FILE) var main_menu_scene
 
-export(NodePath) var win_menu_node
-onready var win_menu := get_node(win_menu_node)
+export(NodePath) var time_node
+onready var timer: Node = (get_node(time_node) as Node)
+export(NodePath) var time_label_node
+onready var time_label := get_node(time_label_node)
+
 
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var win_menu_open = false
+var game_won = false
+var final_time = "N/A"
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	top_level_control.visible=false
-	
+	top_level_control.visible = false
 	#Connect button functionality
-	continue_button.connect("pressed", self, "_pause_toggle", [false])
+	continue_button.connect("pressed", self, "_win_menu_toggle", [false])
 	main_menu_button.connect("pressed", self, "_main_menu_switch")
 	application_close_button.connect("pressed", self, "_quit_application")
 	
 	#Connect button sound effects
 	continue_button.connect("mouse_entered", self, "_button_mouseover_sfx")
 	main_menu_button.connect("mouse_entered", self, "_button_mouseover_sfx")
-	application_close_button.connect("mouse_entered", self, "_button_mouseover_sfx")	
+	application_close_button.connect("mouse_entered", self, "_button_mouseover_sfx")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("pause"):
-		if not win_menu.win_menu_open:
-			_pause_toggle(not get_tree().paused)
+	if win_menu_open and not game_won:
+		_win_menu_toggle(true)
 
-func _pause_toggle(on: bool) -> void:
+func _win_menu_toggle(on: bool) -> void:
+	if on:
+		if not game_won:
+			final_time = timer.get_formatted_time()
+			time_label.text = final_time
+		game_won = true
+	win_menu_open = on
 	top_level_control.visible = on
-	get_tree().paused = on
-
+	
 func _main_menu_switch() -> void:
 	get_tree().change_scene(main_menu_scene)
 	get_tree().paused = false

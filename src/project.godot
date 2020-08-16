@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Rain Bow"
+config/name="Color World"
 run/main_scene="res://Scenes/World.tscn"
 boot_splash/use_filter=false
 config/icon="res://icon.png"
