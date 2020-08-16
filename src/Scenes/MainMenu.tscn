@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/FadeoutRect.gd" type="Script" id=1]
 [ext_resource path="res://Music/SFX/menu_button_hover.wav" type="AudioStream" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Music/rainbow_title.wav" type="AudioStream" id=6]
 [ext_resource path="res://Art/exitButton.png" type="Texture" id=7]
 [ext_resource path="res://Art/playButton.png" type="Texture" id=8]
+[ext_resource path="res://Art/title.png" type="Texture" id=9]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -39,13 +40,6 @@ __meta__ = {
 material = SubResource( 1 )
 position = Vector2( 238.11, 134.929 )
 texture = ExtResource( 4 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = 203.947
-margin_top = 61.4489
-margin_right = 269.947
-margin_bottom = 75.4489
-text = "Raine Bow"
 
 [node name="PlayButton" type="TextureButton" parent="."]
 margin_left = 4.57764e-05
@@ -90,5 +84,9 @@ anims/fade_to_black = SubResource( 2 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
+
+[node name="title" type="Sprite" parent="."]
+position = Vector2( 227.735, 63.1921 )
+texture = ExtResource( 9 )
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitBtn_pressed"]
