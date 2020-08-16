@@ -1,17 +1,15 @@
 extends ColorRect
-
-export(String, FILE, "*.tscn") var next_scene_path
 onready var _animation_player: AnimationPlayer = ($AnimationPlayer as AnimationPlayer)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.show_on_top=true
 	pass # Replace with function body.
 
-func transition_to(_next_scene_path:=next_scene_path, seconds:=1):
-	_animation_player.play("fade_to_black", -1, 1.0/seconds)
+func transition_from_prev(seconds:=1):
+	self.show_on_top=true
+	#plays the fade-to-black animation backwards
+	_animation_player.play("fade_to_black", -1, -1.0/seconds, true)
 	yield(_animation_player, "animation_finished")
-	var _error = get_tree().change_scene(_next_scene_path)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
