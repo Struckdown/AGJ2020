@@ -8,6 +8,7 @@ var chargeRate = 2
 var minCharge = 35
 var maxCharge = 100
 var bowLength = 25
+var playedFullyChargedAnim = false
 export (PackedScene) var projectile
 
 export(String, "NONE", "RED", "GREEN", "BLUE") var weaponColors
@@ -23,7 +24,7 @@ var curAnim
 enum {LEFT, UP, DOWN, RIGHT}
 
 func _ready():
-	updateBow()
+	updateBow(false)
 	currentCharge = 0
 	updateColor("RED")
 
@@ -59,10 +60,12 @@ func get_input():
 	velocity = velocity.normalized() * speed
 
 	if Input.is_action_pressed("shoot"):
-		updateBow()
+		updateBow(true)
 		charge()
+	if Input.is_action_just_pressed("shoot"):
+		$BowAnimPlayer.play("BowCharge")
 	if Input.is_action_just_released("shoot"):
-		updateBow()
+		updateBow(false)
 		shoot()
 		
 	if newAnim != curAnim:
@@ -75,7 +78,13 @@ func _physics_process(_delta):
 
 func charge():
 	currentCharge = clamp(currentCharge+chargeRate, minCharge, maxCharge)
-	$BowAnimPlayer.play("BowCharge")
+	if currentCharge == maxCharge and !playedFullyChargedAnim:
+		playedFullyChargedAnim = true
+		$BowAnimPlayer.play("bowCharged")
+
+	if !$BowSFX.playing and currentCharge < maxCharge:
+		$BowSFX.stream = load("res://Music/SFX/bow_drawstring.wav")
+		$BowSFX.play()
 
 func shoot():
 	$BowAnimPlayer.play("BowFire")
@@ -83,6 +92,7 @@ func shoot():
 	var bowFireSound = load("res://Music/SFX/bow_fire_" + str(i) + ".wav")
 	$BowSFX.stream = bowFireSound
 	$BowSFX.play()
+	playedFullyChargedAnim = false
 	
 	var b = projectile.instance()
 	get_parent().add_child(b)
@@ -95,11 +105,12 @@ func shoot():
 	
 
 # take in enum direction
-func updateBow():
+func updateBow(isVisible):
 	$"Rain Bow".frame = 3
 	$"Rain Bow".rotation = get_angle_to(get_global_mouse_position())
 	#$"Rain Bow".offset = Vector2(bowOffset, 0)
 	$"Rain Bow".offset = Vector2(bowLength, 0)
+	$"Rain Bow".visible = isVisible
 
 
 func updateColor(newColor):
