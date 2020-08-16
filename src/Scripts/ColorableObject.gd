@@ -2,6 +2,7 @@ extends Node2D
 
 export(String, "RED", "GREEN", "BLUE") var acceptableColor
 export(String, "propBush1", "propRoadPost", "propBench", "propBush2", "propCarB","propGarbage","propRecycle","propRock1", "propRock2","propTree1") var propType
+
 var colorFraction = 0
 var levelManager
 signal colored
@@ -11,11 +12,11 @@ var timesHit = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var children = get_tree().root.get_child(1).get_children()
+	var children = get_tree().root.get_child(2).get_children()
 	for child in children:
 		if child.is_in_group("levelManager"):
 			levelManager = child
-			var _error = connect("colored", levelManager, "objectColored")
+	var _error = connect("colored", levelManager, "objectColored")
 
 	var mat = get_node("Sprite").get_material().duplicate(true)
 	get_node("Sprite").set_material(mat)
