@@ -729,3 +729,15 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 shape = SubResource( 7 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 15.4597
+margin_top = 46.379
+margin_right = 182.46
+margin_bottom = 77.379
+text = "WASD - Move
+Left Mouse Button - Shoot"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
