@@ -315,6 +315,7 @@ __meta__ = {
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
 time_node = NodePath("../StopwatchTimer")
+win_menu_node = NodePath("../Win Menu")
 
 [node name="LevelManager" parent="." instance=ExtResource( 4 )]
 partsBetweenUpdates = 1
