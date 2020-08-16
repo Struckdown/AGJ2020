@@ -358,7 +358,6 @@ time_node = NodePath("../StopwatchTimer")
 win_menu_node = NodePath("../Win Menu")
 
 [node name="LevelManager" parent="." instance=ExtResource( 4 )]
-totalAmountOfUpdates = 15
 UI_Path = NodePath("../UI")
 tileMap_Path = NodePath("../TileMap")
 player_Path = NodePath("../Character")
