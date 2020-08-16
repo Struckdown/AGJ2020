@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Art/pl_front.png" type="Texture" id=2]
@@ -216,6 +216,22 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="Animation" id=14]
+resource_name = "bowCharged"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rain Bow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [sub_resource type="CanvasItemMaterial" id=10]
 particles_animation = true
 particles_anim_h_frames = 2
@@ -272,7 +288,6 @@ anims/upAnim = SubResource( 6 )
 anims/upIdleAnim = SubResource( 7 )
 
 [node name="Rain Bow" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 6 )
 hframes = 4
 frame = 1
@@ -280,6 +295,7 @@ frame = 1
 [node name="BowAnimPlayer" type="AnimationPlayer" parent="."]
 anims/BowCharge = SubResource( 8 )
 anims/BowFire = SubResource( 9 )
+anims/bowCharged = SubResource( 14 )
 
 [node name="BowSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
