@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scripts/StopwatchTimer.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Art/tileFences.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/FadeinLayer.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 6 )
@@ -222,3 +223,5 @@ continue_button_node = NodePath("../Pause Menu/PauseMenuLayer/CenterContainer/Pa
 main_menu_button_node = NodePath("../Pause Menu/PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Main_Menu_Button")
 application_close_button_node = NodePath("../Pause Menu/PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Application_Close_Button")
 mouseover_soundeffect_node = NodePath("../Pause Menu/mouseover_soundeffect")
+
+[node name="FadeinLayer" parent="." instance=ExtResource( 12 )]
