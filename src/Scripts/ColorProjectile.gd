@@ -3,7 +3,7 @@ extends Area2D
 var speed = 1250
 var currentSpeed = 750
 var speedDecay = 15
-var color
+export(String, "RED", "GREEN", "BLUE") var color
 
 func _ready():
 	pass
@@ -17,6 +17,19 @@ func _physics_process(delta):
 		$Sprite.hide()
 		$Particles2D.emitting = false
 		$Timer.start()
+
+func updateColor(newColor):
+	print("Updated color")
+	match newColor:
+		"RED":
+			$Sprite.texture = load("res://Art/flowerShot.png")
+			$Particles2D.texture = load("res://Art/petalTrail.png")
+		"GREEN":
+			$Sprite.texture = load("res://Art/flowerShotG.png")
+			$Particles2D.texture = load("res://Art/petalTrailG.png")
+		"BLUE":
+			$Sprite.texture = load("res://Art/flowerShotB.png")
+			$Particles2D.texture = load("res://Art/petalTrailB.png")
 
 func applyCharge(chargePercentage):
 	currentSpeed = chargePercentage*speed

@@ -77,7 +77,7 @@ func shoot():
 	b.transform = transform
 	b.rotation  = get_angle_to(get_global_mouse_position())
 	b.applyCharge(float(currentCharge)/float(maxCharge))
-	b.color = colorEquipped
+	b.updateColor(colorEquipped)
 	
 	currentCharge = 0;
 	
