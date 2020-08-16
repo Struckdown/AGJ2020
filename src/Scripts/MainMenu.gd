@@ -1,7 +1,6 @@
 extends Control
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,7 +12,8 @@ func _ready():
 
 
 func _on_PlayButton_pressed():
-	var _error = get_tree().change_scene("res://Scenes/World.tscn")
+	$FadeoutRect.transition_to("res://Scenes/World.tscn", 2)
+	
 
 
 func _on_PlayButton_mouse_entered():
