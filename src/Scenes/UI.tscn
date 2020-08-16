@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
+[ext_resource path="res://Art/paintCounter.png" type="Texture" id=2]
+[ext_resource path="res://Art/uiBubble.png" type="Texture" id=3]
 
 [node name="UI" type="Control"]
+anchor_top = 0.00185185
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.00185
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -15,6 +18,7 @@ points_label_node = NodePath("CanvasLayer/PanelContainer_Points/Points")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PanelContainer_Time" type="PanelContainer" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 5.0
 margin_top = 238.0
 margin_right = 50.0
@@ -25,6 +29,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="uiBubble" type="Sprite" parent="CanvasLayer/PanelContainer_Time"]
+position = Vector2( 19.5, 13.5 )
+texture = ExtResource( 3 )
+
 [node name="Time" type="Label" parent="CanvasLayer/PanelContainer_Time"]
 margin_left = 7.0
 margin_top = 7.0
@@ -33,23 +41,35 @@ margin_bottom = 21.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 
 [node name="PanelContainer_Points" type="PanelContainer" parent="CanvasLayer"]
-margin_left = 5.12717
-margin_top = 5.45449
-margin_right = 67.1272
-margin_bottom = 33.4545
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 26.0
+margin_top = 3.0
+margin_right = 102.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="uiBubble" type="Sprite" parent="CanvasLayer/PanelContainer_Points"]
+position = Vector2( 19.3728, 12.5455 )
+texture = ExtResource( 3 )
+
+[node name="paintCounter" type="Sprite" parent="CanvasLayer/PanelContainer_Points/uiBubble"]
+position = Vector2( -27.5, 0 )
+texture = ExtResource( 2 )
+
 [node name="Points" type="Label" parent="CanvasLayer/PanelContainer_Points"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 55.0
+margin_right = 69.0
 margin_bottom = 21.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Points: "
 __meta__ = {
 "_edit_use_anchors_": false

@@ -21,7 +21,7 @@ func _process(delta):
 
 
 func update():
-	points_label.text = "Tincturings: " + str(score)
+	points_label.text = str(score)
 	var time_string = ""
 	if win_menu.game_won:
 		time_string = time_string + "Won at: "
