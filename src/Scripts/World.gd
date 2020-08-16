@@ -10,7 +10,7 @@ export(NodePath) var time_node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node(time_node).started = true
-	$FadeinRect.transition_from_prev(2.0)
+	#$FadeinRect.transition_from_prev(2.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
