@@ -75,6 +75,7 @@ time_node = NodePath("../StopwatchTimer")
 partsBetweenUpdates = 1
 UI_Path = NodePath("../UI")
 tileMap_Path = NodePath("../TileMap")
+player_Path = NodePath("../Character")
 
 [node name="ColorPickup" parent="." instance=ExtResource( 7 )]
 position = Vector2( 171.136, 210.271 )
