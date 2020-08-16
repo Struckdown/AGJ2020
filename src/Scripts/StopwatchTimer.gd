@@ -31,6 +31,7 @@ func get_formatted_time():
 func reset(seconds_count:float=0.0):
 	_time = seconds_count
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Tick the stopwatch when it is running and not paused.

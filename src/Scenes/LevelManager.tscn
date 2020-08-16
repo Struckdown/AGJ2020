@@ -10,5 +10,4 @@ script = ExtResource( 1 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="LevelVictoryDelay" type="Timer" parent="."]
-wait_time = 10.0
 [connection signal="timeout" from="LevelVictoryDelay" to="." method="_on_LevelVictoryDelay_timeout"]
