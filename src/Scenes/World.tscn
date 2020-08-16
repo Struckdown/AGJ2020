@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/WorldTileset.tres" type="TileSet" id=5]
 [ext_resource path="res://Shaders/grayscale.tres" type="Shader" id=6]
 [ext_resource path="res://Scenes/ColorPickup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Pause Control.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 6 )
@@ -23,29 +24,6 @@ initial_velocity = 153.27
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color = Color( 0.207843, 0.682353, 0.780392, 1 )
-
-[sub_resource type="GDScript" id=3]
-script/source = "extends Control
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-var is_paused = false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed(\"pause\"):
-		is_paused = not is_paused
-		get_tree().paused = is_paused
-		
-"
 
 [node name="World" type="Node2D"]
 __meta__ = {
@@ -93,19 +71,6 @@ partsBetweenUpdates = 1
 UI_Path = NodePath("../UI")
 tileMap_Path = NodePath("../TileMap")
 
-[node name="Pause Control" type="Control" parent="."]
-pause_mode = 2
-margin_right = 40.0
-margin_bottom = 40.0
-script = SubResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="Pause Control"]
-margin_right = 40.0
-margin_bottom = 40.0
-
 [node name="ColorPickup" parent="." instance=ExtResource( 7 )]
 position = Vector2( 171.136, 210.271 )
 scale = Vector2( 0.179823, 0.179823 )
@@ -120,3 +85,8 @@ color = "GREEN"
 position = Vector2( 310.117, 218.735 )
 scale = Vector2( 0.179823, 0.179823 )
 color = "BLUE"
+
+[node name="Pause Control" parent="." instance=ExtResource( 8 )]
+continue_button_node = NodePath("../Pause Control/PanelContainer/VBoxContainer/Continue_Button")
+main_menu_button_node = NodePath("../Pause Control/PanelContainer/VBoxContainer/Main_Menu_Button")
+application_close_button_node = NodePath("../Pause Control/PanelContainer/VBoxContainer/Application_Close_Button")
