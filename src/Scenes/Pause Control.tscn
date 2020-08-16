@@ -13,9 +13,9 @@
 pause_mode = 2
 script = ExtResource( 2 )
 top_level_control_node = NodePath("PauseMenuLayer/CenterContainer")
-continue_button_node = NodePath("PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Continue_Center/Continue_Btn")
-main_menu_button_node = NodePath("PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/CenterContainer2/Main_Menu_Btn")
-application_close_button_node = NodePath("PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/CenterContainer/Exit_Btn")
+continue_button_node = NodePath("PauseMenuLayer/CenterContainer/VBoxContainer/Continue_Center/Continue_Btn")
+main_menu_button_node = NodePath("PauseMenuLayer/CenterContainer/VBoxContainer/CenterContainer2/Main_Menu_Btn")
+application_close_button_node = NodePath("PauseMenuLayer/CenterContainer/VBoxContainer/CenterContainer/Exit_Btn")
 mouseover_soundeffect_node = NodePath("mouseover_soundeffect")
 main_menu_scene = "res://Scenes/MainMenu.tscn"
 
@@ -25,22 +25,32 @@ stream = ExtResource( 1 )
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 
 [node name="CenterContainer" type="CenterContainer" parent="PauseMenuLayer"]
-margin_right = 480.0
-margin_bottom = 270.0
+margin_left = 130.525
+margin_top = 106.729
+margin_right = 303.525
+margin_bottom = 199.729
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="PauseMenuLayer/CenterContainer"]
-margin_left = 146.0
-margin_top = 81.0
-margin_right = 333.0
-margin_bottom = 188.0
+visible = false
+margin_left = 86.0
+margin_top = 46.0
+margin_right = 100.0
+margin_bottom = 60.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenuLayer/CenterContainer/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="PauseMenuLayer/CenterContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 7.0
+margin_bottom = 7.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenuLayer/CenterContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 180.0
@@ -48,11 +58,11 @@ margin_bottom = 100.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="Continue_Center" type="CenterContainer" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="Continue_Center" type="CenterContainer" parent="PauseMenuLayer/CenterContainer/VBoxContainer"]
 margin_right = 173.0
 margin_bottom = 28.0
 
-[node name="Continue_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Continue_Center"]
+[node name="Continue_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/VBoxContainer/Continue_Center"]
 margin_left = 33.0
 margin_right = 140.0
 margin_bottom = 28.0
@@ -61,12 +71,12 @@ size_flags_horizontal = 2
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 8 )
 
-[node name="CenterContainer2" type="CenterContainer" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="CenterContainer2" type="CenterContainer" parent="PauseMenuLayer/CenterContainer/VBoxContainer"]
 margin_top = 32.0
 margin_right = 173.0
 margin_bottom = 62.0
 
-[node name="Main_Menu_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/CenterContainer2"]
+[node name="Main_Menu_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/VBoxContainer/CenterContainer2"]
 margin_right = 173.0
 margin_bottom = 30.0
 texture_normal = ExtResource( 4 )
@@ -75,12 +85,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenuLayer/CenterContainer/VBoxContainer"]
 margin_top = 66.0
 margin_right = 173.0
 margin_bottom = 93.0
 
-[node name="Exit_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/CenterContainer"]
+[node name="Exit_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/VBoxContainer/CenterContainer"]
 margin_left = 28.0
 margin_right = 144.0
 margin_bottom = 27.0
