@@ -15,10 +15,10 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Color World"
-run/main_scene="res://Scenes/World.tscn"
+config/name="Rain Bow"
+run/main_scene="res://Scenes/MainMenu.tscn"
 boot_splash/use_filter=false
-config/icon="res://icon.png"
+config/icon="res://Art/powerFlowerB.png"
 
 [autoload]
 
