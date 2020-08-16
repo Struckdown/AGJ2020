@@ -1,6 +1,7 @@
 extends Node2D
 
 export(String, "RED", "GREEN", "BLUE") var acceptableColor
+export(String, "propBush1", "propRoadPost", "propBench") var propType
 var colorFraction = 0
 var levelManager
 signal colored
@@ -18,6 +19,7 @@ func _ready():
 
 	var mat = get_node("Sprite").get_material().duplicate(true)
 	get_node("Sprite").set_material(mat)
+	get_node("Sprite").set_animation(propType)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

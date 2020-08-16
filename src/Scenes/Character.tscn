@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Art/pl_front.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=8]
 [ext_resource path="res://Art/sparkle.png" type="Texture" id=9]
 [ext_resource path="res://Art/rainSplash.png" type="Texture" id=10]
+[ext_resource path="res://Music/SFX/walk_grass.wav" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.4722, 24.1308 )
@@ -129,13 +130,13 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=9]
+[sub_resource type="CanvasItemMaterial" id=7]
 particles_animation = true
 particles_anim_h_frames = 2
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=8]
 emission_shape = 2
 emission_box_extents = Vector3( 800, 700, 1 )
 flag_disable_z = true
@@ -144,13 +145,13 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 anim_speed = 4.0
 
-[sub_resource type="CanvasItemMaterial" id=7]
+[sub_resource type="CanvasItemMaterial" id=9]
 particles_animation = true
 particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=10]
 emission_shape = 2
 emission_box_extents = Vector3( 800, 700, 1 )
 flag_disable_z = true
@@ -201,20 +202,23 @@ anims/BowFire = SubResource( 6 )
 stream = ExtResource( 7 )
 
 [node name="ScreenParticles" type="Particles2D" parent="."]
-material = SubResource( 9 )
+material = SubResource( 7 )
 emitting = false
 amount = 75
 one_shot = true
 visibility_rect = Rect2( -200, -200, 400, 400 )
 local_coords = false
-process_material = SubResource( 10 )
+process_material = SubResource( 8 )
 texture = ExtResource( 9 )
 
 [node name="RainParticles" type="Particles2D" parent="."]
-material = SubResource( 7 )
+material = SubResource( 9 )
 amount = 15
 lifetime = 0.2
 visibility_rect = Rect2( -200, -200, 400, 400 )
 local_coords = false
-process_material = SubResource( 8 )
+process_material = SubResource( 10 )
 texture = ExtResource( 10 )
+
+[node name="WalkingSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )

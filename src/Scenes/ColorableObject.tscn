@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Art/propBush1.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/ColorableObject.gd" type="Script" id=2]
 [ext_resource path="res://Shaders/grayscale.tres" type="Shader" id=3]
+[ext_resource path="res://Art/propRoadPost.png" type="Texture" id=4]
+[ext_resource path="res://Art/propBench.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.4973, 32.4031 )
@@ -11,10 +13,29 @@ extents = Vector2( 30.4973, 32.4031 )
 shader = ExtResource( 3 )
 shader_param/ColorLevel = 0.0
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "propBush1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "propRoadPost",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "propBench",
+"speed": 5.0
+} ]
+
 [node name="ColorableObject" type="Node2D" groups=[
 "colorable",
 ]]
 script = ExtResource( 2 )
+propType = "propBush1"
 
 [node name="Area2D" type="Area2D" parent="." groups=[
 "colorable",
@@ -25,8 +46,8 @@ script = ExtResource( 2 )
 ]]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 material = SubResource( 2 )
-texture = ExtResource( 1 )
+frames = SubResource( 3 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
