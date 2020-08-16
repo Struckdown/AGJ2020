@@ -98,4 +98,3 @@ func updateColor(color):
 			colorEquipped = colorGreen
 		"BLUE":
 			colorEquipped = colorBlue
-	print("Weapon color is now: " + str(colorEquipped))
