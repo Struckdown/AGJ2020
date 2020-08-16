@@ -20,6 +20,17 @@ func _ready():
 	var mat = get_node("Sprite").get_material().duplicate(true)
 	get_node("Sprite").set_material(mat)
 	get_node("Sprite").set_animation(propType)
+	var outlineColor
+	match acceptableColor:
+		"RED":
+			outlineColor = Vector3(1, 0, 0)
+		"GREEN":
+			outlineColor = Vector3(0, 1, 0)
+		"BLUE":
+			outlineColor = Vector3(0, 0, 1)
+		_:
+			print("Failed to set color outline")
+	$Sprite.material.set_shader_param("OutlineColor", outlineColor)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
