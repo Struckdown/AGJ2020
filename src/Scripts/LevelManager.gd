@@ -12,6 +12,8 @@ export(NodePath) var tileMap_Path
 var tileMap
 export(NodePath) var player_Path
 var player
+export(NodePath) var win_menu_path
+onready var win_menu = get_node(win_menu_path)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -46,4 +48,6 @@ func updateTilemap():
 
 
 func _on_LevelVictoryDelay_timeout():
-	var _error = get_tree().change_scene("res://Scenes/VictoryLevel.tscn")
+	if not win_menu.game_won:
+		win_menu.win_menu_open = true
+	#var _error = get_tree().change_scene("res://Scenes/VictoryLevel.tscn")

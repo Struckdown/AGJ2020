@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Music/SFX/menu_button_hover.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scenes/Win Control.gd" type="Script" id=2]
+[ext_resource path="res://Art/propCarB.png" type="Texture" id=3]
+
+[node name="Win Control" type="Node"]
+pause_mode = 2
+script = ExtResource( 2 )
+top_level_control_node = NodePath("WinMenuLayer/CenterContainer")
+continue_button_node = NodePath("WinMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Continue_Button")
+main_menu_button_node = NodePath("WinMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Main_Menu_Button")
+application_close_button_node = NodePath("WinMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Application_Close_Button")
+mouseover_soundeffect_node = NodePath("mouseover_soundeffect")
+main_menu_scene = "res://Scenes/MainMenu.tscn"
+time_label_node = NodePath("WinMenuLayer/CenterContainer/PanelContainer/VBoxContainer/TimeLabel")
+
+[node name="mouseover_soundeffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="WinMenuLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="WinMenuLayer"]
+margin_right = 480.0
+margin_bottom = 270.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="WinMenuLayer/CenterContainer"]
+margin_left = 137.0
+margin_top = 35.0
+margin_right = 343.0
+margin_bottom = 235.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinMenuLayer/CenterContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 199.0
+margin_bottom = 193.0
+
+[node name="TextureRect" type="TextureRect" parent="WinMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+margin_right = 192.0
+margin_bottom = 96.0
+texture = ExtResource( 3 )
+
+[node name="TimeLabel" type="Label" parent="WinMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 100.0
+margin_right = 192.0
+margin_bottom = 114.0
+
+[node name="Continue_Button" type="Button" parent="WinMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 118.0
+margin_right = 192.0
+margin_bottom = 138.0
+text = "Continue"
+
+[node name="Main_Menu_Button" type="Button" parent="WinMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 142.0
+margin_right = 192.0
+margin_bottom = 162.0
+text = "Exit to Main Menu"
+
+[node name="Application_Close_Button" type="Button" parent="WinMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 166.0
+margin_right = 192.0
+margin_bottom = 186.0
+text = "Quit to Desktop"
