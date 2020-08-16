@@ -13,8 +13,8 @@ func _ready():
 #	pass
 
 func _on_PlayButton_pressed():
-	GlobalMusicPlayer.start()
 	$ThunderSFX.play()
+	$MusicDelayTimer.start()
 	$FadeoutRect.transition_to("res://Scenes/World.tscn", 2)
 	
 
@@ -24,3 +24,7 @@ func _on_PlayButton_mouse_entered():
 
 func _on_ExitBtn_pressed():
 	get_tree().quit()
+
+
+func _on_MusicDelayTimer_timeout():
+	GlobalMusicPlayer.start()
