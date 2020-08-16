@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
@@ -14,12 +14,13 @@
 [ext_resource path="res://Scenes/FadeinLayer.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/Prop.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Win Control.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 6 )
 shader_param/ColorLevel = 0.0
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=2]
 emission_shape = 2
 emission_box_extents = Vector3( 300, 400, 1 )
 flag_disable_z = true
@@ -31,7 +32,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color = Color( 0.207843, 0.682353, 0.780392, 1 )
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=3]
 0/name = "tileFences.png 0"
 0/texture = ExtResource( 11 )
 0/tex_offset = Vector2( 0, 0 )
@@ -195,7 +196,7 @@ scale = Vector2( 3.16637, 3.16637 )
 amount = 600
 lifetime = 5.0
 local_coords = false
-process_material = SubResource( 3 )
+process_material = SubResource( 2 )
 
 [node name="ColorableObject3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 328, -32 )
@@ -280,7 +281,7 @@ acceptableColor = "RED"
 propType = "propRock2"
 
 [node name="TileMap2" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
+tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -2097096, 7, 0, -2097074, 8, 0, -2097064, 7, 0, -2031558, 3, 0, -2031556, 3, 0, -2031554, 3, 0, -2031552, 3, 0, -2031550, 3, 0, -2031548, 3, 0, -2031546, 3, 0, -2031544, 3, 0, -2031542, 3, 0, -2031540, 3, 0, -2031526, 3, 0, -2031524, 3, 0, -2031522, 3, 0, -2031520, 3, 0, -2031518, 3, 0, -2031516, 3, 0, -2031514, 3, 0, -2031512, 3, 0, -2031510, 3, 0, -2031508, 3, 0, -393216, 6, 0, -327678, 3, 0, -327654, 3, 0, -327652, 3, 0, -131072, 5, 0, 0, 5, 0, 131072, 5, 0, 262144, 5, 0, 393216, 5, 0, 524288, 5, 0, 655360, 5, 0, 786432, 5, 0, 917504, 4, 0, 917532, 8, 0, 983042, 3, 0, 983044, 3, 0, 983046, 3, 0, 983048, 3, 0, 983050, 3, 0, 983052, 3, 0, 983054, 3, 0, 983056, 3, 0, 983058, 3, 0, 983060, 3, 0, 983062, 3, 0, 983064, 3, 0, 983066, 3, 0 )
@@ -318,8 +319,12 @@ continue_button_node = NodePath("../Pause Menu/PauseMenuLayer/CenterContainer/Pa
 main_menu_button_node = NodePath("../Pause Menu/PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Main_Menu_Button")
 application_close_button_node = NodePath("../Pause Menu/PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Application_Close_Button")
 mouseover_soundeffect_node = NodePath("../Pause Menu/mouseover_soundeffect")
+win_menu_node = NodePath("../Win Menu")
 
 [node name="FadeinLayer" parent="." instance=ExtResource( 12 )]
+
+[node name="Win Menu" parent="." instance=ExtResource( 15 )]
+time_node = NodePath("../StopwatchTimer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
