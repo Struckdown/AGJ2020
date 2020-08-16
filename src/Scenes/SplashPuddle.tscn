@@ -1,9 +1,27 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Art/puddleSplash.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/SplashPuddle.gd" type="Script" id=2]
+[ext_resource path="res://Art/tiles.png" type="Texture" id=3]
+
+[sub_resource type="TileSet" id=3]
+0/name = "tiles.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 608, 352, 160, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 19.3922, 10 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Splash"
@@ -35,6 +53,13 @@ tracks/1/keys = {
 
 [node name="SplashPuddle" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -3.47324, 6.94649 )
+scale = Vector2( 0.25, 0.25 )
+tile_set = SubResource( 3 )
+format = 1
+tile_data = PoolIntArray( -1, 0, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
