@@ -29,8 +29,6 @@ func _ready():
 	continue_button.connect("mouse_entered", self, "_button_mouseover_sfx")
 	main_menu_button.connect("mouse_entered", self, "_button_mouseover_sfx")
 	application_close_button.connect("mouse_entered", self, "_button_mouseover_sfx")	
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
