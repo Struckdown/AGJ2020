@@ -15,7 +15,6 @@ var player
 export(NodePath) var win_menu_path
 onready var win_menu = get_node(win_menu_path)
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	UI = get_node(UI_Path)

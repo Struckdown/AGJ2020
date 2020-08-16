@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GlobalMusicPlayer.reset()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,6 +12,7 @@ func _ready():
 
 
 func _on_PlayButton_pressed():
+	GlobalMusicPlayer.start()
 	$FadeoutRect.transition_to("res://Scenes/World.tscn", 2)
 	
 

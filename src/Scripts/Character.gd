@@ -96,7 +96,8 @@ func shoot():
 	
 	var b = projectile.instance()
 	get_parent().add_child(b)
-	b.transform = transform
+	b.transform = $"Rain Bow".transform
+	b.global_position = $"Rain Bow".global_position + $"Rain Bow".offset.rotated(get_angle_to(get_global_mouse_position()))
 	b.rotation  = get_angle_to(get_global_mouse_position())
 	b.applyCharge(float(currentCharge)/float(maxCharge))
 	b.updateColor(colorEquipped)

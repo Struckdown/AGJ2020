@@ -45,6 +45,7 @@ func _win_menu_toggle(on: bool) -> void:
 	if on:
 		if not game_won:
 			final_time = timer.get_formatted_time()
+			timer.paused = true
 			time_label.text = final_time
 		game_won = true
 	win_menu_open = on
