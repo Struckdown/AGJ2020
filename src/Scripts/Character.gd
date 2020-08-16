@@ -44,6 +44,11 @@ func get_input():
 		velocity.y -= 1
 		newAnim = "upAnim"
 	# Make sure diagonal movement isn't faster
+	if velocity == Vector2(0,0):
+		$WalkingSFX.playing = false
+	else:
+		if $WalkingSFX.playing == false:
+			$WalkingSFX.play()
 	velocity = velocity.normalized() * speed
 
 	if Input.is_action_pressed("shoot"):
@@ -96,3 +101,13 @@ func updateColor(newColor):
 
 func playSparkles():
 	$ScreenParticles.emitting = true
+
+
+func updateWalkingSFX(newSFX):
+	match newSFX:
+		0:
+			$WalkingSFX.stream = load("res://Music/SFX/walk_grass.wav")
+		1:
+			$WalkingSFX.stream = load("res://Music/SFX/walk_crunchy.wav")
+		2:
+			$WalkingSFX.stream = load("res://Music/SFX/walk_sidewalk.wav")
