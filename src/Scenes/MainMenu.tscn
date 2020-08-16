@@ -44,20 +44,20 @@ position = Vector2( 238.11, 134.929 )
 texture = ExtResource( 4 )
 
 [node name="PlayButton" type="TextureButton" parent="."]
-margin_left = 4.57764e-05
-margin_top = 212.747
-margin_right = 114.0
-margin_bottom = 270.747
+margin_left = 332.979
+margin_top = 201.45
+margin_right = 446.979
+margin_bottom = 259.45
 texture_normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ExitButton" type="TextureButton" parent="."]
-margin_left = 391.437
-margin_top = 220.735
-margin_right = 505.437
-margin_bottom = 278.735
+margin_left = 39.8651
+margin_top = 207.514
+margin_right = 153.865
+margin_bottom = 265.514
 texture_normal = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -67,7 +67,7 @@ __meta__ = {
 stream = ExtResource( 2 )
 
 [node name="title" type="Sprite" parent="."]
-position = Vector2( 227.735, 63.1921 )
+position = Vector2( 180.167, 69.1381 )
 texture = ExtResource( 9 )
 
 [node name="FadeoutRect" type="ColorRect" parent="."]
