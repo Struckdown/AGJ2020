@@ -10,6 +10,10 @@
 pause_mode = 2
 script = ExtResource( 2 )
 top_level_control_node = NodePath("PauseMenuLayer/CenterContainer")
+continue_button_node = NodePath("PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Continue_Center/Continue_Btn")
+main_menu_button_node = NodePath("PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/CenterContainer2/Main_Menu_Btn")
+application_close_button_node = NodePath("PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/CenterContainer/Exit_Btn")
+mouseover_soundeffect_node = NodePath("mouseover_soundeffect")
 main_menu_scene = "res://Scenes/MainMenu.tscn"
 
 [node name="mouseover_soundeffect" type="AudioStreamPlayer" parent="."]
@@ -41,32 +45,41 @@ margin_bottom = 100.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="Continue_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
-margin_right = 107.0
+[node name="Continue_Center" type="CenterContainer" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+margin_right = 173.0
+margin_bottom = 28.0
+
+[node name="Continue_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Continue_Center"]
+margin_left = 33.0
+margin_right = 140.0
 margin_bottom = 28.0
 grow_horizontal = 2
 size_flags_horizontal = 2
 texture_normal = ExtResource( 3 )
 
-[node name="Main_Menu_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="CenterContainer2" type="CenterContainer" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
 margin_top = 32.0
 margin_right = 173.0
 margin_bottom = 62.0
+
+[node name="Main_Menu_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/CenterContainer2"]
+margin_right = 173.0
+margin_bottom = 30.0
 texture_normal = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exit_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
 margin_top = 66.0
 margin_right = 173.0
 margin_bottom = 93.0
+
+[node name="Exit_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/CenterContainer"]
+margin_left = 28.0
+margin_right = 144.0
+margin_bottom = 27.0
 texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="mouse_entered" from="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Continue_Btn" to="." method="_on_Btn_mouse_entered"]
-[connection signal="mouse_entered" from="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Main_Menu_Btn" to="." method="_on_Btn_mouse_entered"]
-[connection signal="pressed" from="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Main_Menu_Btn" to="." method="_on_Main_Menu_Btn_pressed"]
-[connection signal="mouse_entered" from="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Exit_Btn" to="." method="_on_Btn_mouse_entered"]
-[connection signal="pressed" from="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Exit_Btn" to="." method="_on_Exit_Btn_pressed"]
