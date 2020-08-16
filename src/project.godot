@@ -18,7 +18,7 @@ _global_script_class_icons={
 config/name="Rain Bow"
 run/main_scene="res://Scenes/World.tscn"
 boot_splash/use_filter=false
-config/icon="res://icon.png"
+config/icon="res://Art/powerFlowerB.png"
 
 [autoload]
 
