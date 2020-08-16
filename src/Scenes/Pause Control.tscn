@@ -1,16 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Music/SFX/menu_button_hover.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/Pause Control.gd" type="Script" id=2]
+[ext_resource path="res://Art/buContinue.png" type="Texture" id=3]
+[ext_resource path="res://Art/buExitToMain.png" type="Texture" id=4]
+[ext_resource path="res://Art/buExitGame.png" type="Texture" id=5]
 
 [node name="Pause Control" type="Node"]
 pause_mode = 2
 script = ExtResource( 2 )
 top_level_control_node = NodePath("PauseMenuLayer/CenterContainer")
-continue_button_node = NodePath("PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Continue_Button")
-main_menu_button_node = NodePath("PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Main_Menu_Button")
-application_close_button_node = NodePath("PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Application_Close_Button")
-mouseover_soundeffect_node = NodePath("mouseover_soundeffect")
 main_menu_scene = "res://Scenes/MainMenu.tscn"
 
 [node name="mouseover_soundeffect" type="AudioStreamPlayer" parent="."]
@@ -26,10 +25,10 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="PauseMenuLayer/CenterContainer"]
-margin_left = 169.0
-margin_top = 94.0
-margin_right = 310.0
-margin_bottom = 176.0
+margin_left = 146.0
+margin_top = 81.0
+margin_right = 333.0
+margin_bottom = 188.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -37,22 +36,37 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenuLayer/CenterContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 134.0
-margin_bottom = 75.0
+margin_right = 180.0
+margin_bottom = 100.0
+grow_horizontal = 2
+alignment = 1
 
-[node name="Continue_Button" type="Button" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
-margin_right = 127.0
-margin_bottom = 20.0
-text = "Continue"
+[node name="Continue_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+margin_right = 107.0
+margin_bottom = 28.0
+grow_horizontal = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource( 3 )
 
-[node name="Main_Menu_Button" type="Button" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 127.0
-margin_bottom = 44.0
-text = "Exit to Main Menu"
+[node name="Main_Menu_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 32.0
+margin_right = 173.0
+margin_bottom = 62.0
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Application_Close_Button" type="Button" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
-margin_top = 48.0
-margin_right = 127.0
-margin_bottom = 68.0
-text = "Quit to Desktop"
+[node name="Exit_Btn" type="TextureButton" parent="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 66.0
+margin_right = 173.0
+margin_bottom = 93.0
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Continue_Btn" to="." method="_on_Btn_mouse_entered"]
+[connection signal="mouse_entered" from="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Main_Menu_Btn" to="." method="_on_Btn_mouse_entered"]
+[connection signal="pressed" from="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Main_Menu_Btn" to="." method="_on_Main_Menu_Btn_pressed"]
+[connection signal="mouse_entered" from="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Exit_Btn" to="." method="_on_Btn_mouse_entered"]
+[connection signal="pressed" from="PauseMenuLayer/CenterContainer/PanelContainer/VBoxContainer/Exit_Btn" to="." method="_on_Exit_Btn_pressed"]
