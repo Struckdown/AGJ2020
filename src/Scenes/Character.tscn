@@ -215,8 +215,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Rain Bow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=10]
 resource_name = "bowCharged"
 length = 0.2
 tracks/0/type = "value"
@@ -232,13 +244,13 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=10]
+[sub_resource type="CanvasItemMaterial" id=11]
 particles_animation = true
 particles_anim_h_frames = 2
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="ParticlesMaterial" id=11]
+[sub_resource type="ParticlesMaterial" id=12]
 emission_shape = 2
 emission_box_extents = Vector3( 800, 700, 1 )
 flag_disable_z = true
@@ -247,13 +259,13 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 anim_speed = 4.0
 
-[sub_resource type="CanvasItemMaterial" id=12]
+[sub_resource type="CanvasItemMaterial" id=13]
 particles_animation = true
 particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="ParticlesMaterial" id=13]
+[sub_resource type="ParticlesMaterial" id=14]
 emission_shape = 2
 emission_box_extents = Vector3( 800, 700, 1 )
 flag_disable_z = true
@@ -295,28 +307,28 @@ frame = 1
 [node name="BowAnimPlayer" type="AnimationPlayer" parent="."]
 anims/BowCharge = SubResource( 8 )
 anims/BowFire = SubResource( 9 )
-anims/bowCharged = SubResource( 14 )
+anims/bowCharged = SubResource( 10 )
 
 [node name="BowSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
 
 [node name="ScreenParticles" type="Particles2D" parent="."]
-material = SubResource( 10 )
+material = SubResource( 11 )
 emitting = false
 amount = 75
 one_shot = true
 visibility_rect = Rect2( -200, -200, 400, 400 )
 local_coords = false
-process_material = SubResource( 11 )
+process_material = SubResource( 12 )
 texture = ExtResource( 9 )
 
 [node name="RainParticles" type="Particles2D" parent="."]
-material = SubResource( 12 )
+material = SubResource( 13 )
 amount = 15
 lifetime = 0.2
 visibility_rect = Rect2( -200, -200, 400, 400 )
 local_coords = false
-process_material = SubResource( 13 )
+process_material = SubResource( 14 )
 texture = ExtResource( 10 )
 
 [node name="WalkingSFX" type="AudioStreamPlayer2D" parent="."]
