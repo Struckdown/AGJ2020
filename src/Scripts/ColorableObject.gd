@@ -1,10 +1,11 @@
 extends Node2D
 
+export(String, "RED", "GREEN", "BLUE") var acceptableColor
 var colorFraction = 0
 var levelManager
-var acceptableColor
 signal colored
 var signalEmitted = false
+var timesHit = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,7 +25,7 @@ func _ready():
 
 
 func increaseColor(color):
-	if (color == acceptableColor) or true:	# TODO Remove true, set acceptable color
+	if (color == acceptableColor):
 		colorFraction += 0.2
 		colorFraction = min(colorFraction, 1)
 		$Sprite.material.set_shader_param("ColorLevel", colorFraction)
@@ -40,7 +41,9 @@ func playHitSound(isCorrect):
 	var i = randi() % 2 + 1
 	var hitSound
 	if isCorrect:
-		hitSound = load("res://Music/SFX/hit_valid_target_" + str(i) + ".wav")
+		timesHit = min(timesHit+1, 3)
+		i = timesHit
+		hitSound = load("res://Music/SFX/hit_valid_inc_" + str(i) + ".wav")
 	else:
 		hitSound = load("res://Music/SFX/hit_invalid_target_" + str(i) + ".wav")
 	$AudioStreamPlayer2D.stream = hitSound

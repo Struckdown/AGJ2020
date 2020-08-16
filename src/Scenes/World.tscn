@@ -76,12 +76,15 @@ process_material = SubResource( 2 )
 
 [node name="ColorableObject3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 318.272, 37.2175 )
+acceptableColor = "GREEN"
 
 [node name="ColorableObject2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 405.677, 177.596 )
+position = Vector2( 405.677, 177.096 )
+acceptableColor = "BLUE"
 
 [node name="ColorableObject" parent="." instance=ExtResource( 3 )]
 position = Vector2( 51.8168, 199.845 )
+acceptableColor = "RED"
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
 

@@ -3,12 +3,10 @@ extends Area2D
 var speed = 1250
 var currentSpeed = 750
 var speedDecay = 15
-#var chargePercentage
 var color
 
 func _ready():
-	color = Color(randf(), randf(), randf())
-	#currentSpeed = chargePercentage*speed
+	pass
 
 func _physics_process(delta):
 	position += transform.x * currentSpeed * delta

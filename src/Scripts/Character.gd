@@ -90,11 +90,6 @@ func updateBow():
 	$"Rain Bow".offset = Vector2(bowLength, 0)
 
 
-func updateColor(color):
-	match color:
-		"RED":
-			colorEquipped = colorRed
-		"GREEN":
-			colorEquipped = colorGreen
-		"BLUE":
-			colorEquipped = colorBlue
+func updateColor(newColor):
+	colorEquipped = newColor
+	weaponColors = newColor
