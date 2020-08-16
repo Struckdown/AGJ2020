@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Art/pl_front.png" type="Texture" id=2]
@@ -44,6 +44,35 @@ tracks/1/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
+[sub_resource type="Animation" id=11]
+resource_name = "downIdleAnim"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Raine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Raine:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+
 [sub_resource type="Animation" id=3]
 length = 0.6
 loop = true
@@ -72,6 +101,35 @@ tracks/1/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
+[sub_resource type="Animation" id=12]
+resource_name = "sideIdleAnim"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Raine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Raine:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+
 [sub_resource type="Animation" id=4]
 length = 0.6
 loop = true
@@ -86,6 +144,35 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 1, 2, 3, 4, 5, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Raine:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "upIdleAnim"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Raine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Raine:texture")
@@ -165,6 +252,7 @@ anim_offset_random = 1.0
 [node name="Character" type="KinematicBody2D" groups=[
 "player",
 ]]
+z_index = 1
 script = ExtResource( 1 )
 projectile = ExtResource( 3 )
 
@@ -189,12 +277,15 @@ drag_margin_bottom = 0.15
 script = ExtResource( 8 )
 
 [node name="RaineAnimPlayer" type="AnimationPlayer" parent="."]
-autoplay = "upAnim"
 anims/downAnim = SubResource( 2 )
+anims/downIdleAnim = SubResource( 11 )
 anims/sideAnim = SubResource( 3 )
+anims/sideIdleAnim = SubResource( 12 )
 anims/upAnim = SubResource( 4 )
+anims/upIdleAnim = SubResource( 13 )
 
 [node name="Rain Bow" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 6 )
 hframes = 4
 frame = 1

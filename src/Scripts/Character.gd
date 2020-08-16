@@ -46,6 +46,13 @@ func get_input():
 	# Make sure diagonal movement isn't faster
 	if velocity == Vector2(0,0):
 		$WalkingSFX.playing = false
+		match newAnim:
+			"upAnim":
+				newAnim = "upIdleAnim"
+			"downAnim":
+				newAnim = "downIdleAnim"
+			"sideAnim":
+				newAnim = "sideIdleAnim"
 	else:
 		if $WalkingSFX.playing == false:
 			$WalkingSFX.play()
