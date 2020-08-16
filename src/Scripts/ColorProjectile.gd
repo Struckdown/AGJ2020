@@ -19,7 +19,7 @@ func _physics_process(delta):
 		$Timer.start()
 
 func updateColor(newColor):
-	print("Updated color")
+	color = newColor
 	match newColor:
 		"RED":
 			$Sprite.texture = load("res://Art/flowerShot.png")

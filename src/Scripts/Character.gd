@@ -11,7 +11,7 @@ var bowLength = 25
 export (PackedScene) var projectile
 
 export(String, "NONE", "RED", "GREEN", "BLUE") var weaponColors
-var colorEquipped
+var colorEquipped = "RED"
 var colorNone = Color(0, 0, 0)
 var colorRed = Color(255, 0, 0)
 var colorGreen = Color(0, 255, 0)

@@ -1,5 +1,7 @@
 extends Node
 
+var colorFraction = 0
+var previousColorFrac = 0
 var objectsColored = 0
 export(int) var partsBetweenUpdates = 5
 export(int) var totalAmountOfUpdates = 3
@@ -32,6 +34,8 @@ func objectColored():
 		var _error = get_tree().change_scene("res://Scenes/VictoryLevel.tscn")
 
 func updateTilemap():
-	var colorFraction = min(1, float(objectsColored) / float(totalAmountOfUpdates*partsBetweenUpdates))
-	tileMap.material.set_shader_param("ColorLevel", colorFraction)
-
+	previousColorFrac = colorFraction
+	colorFraction = min(1, float(objectsColored) / float(totalAmountOfUpdates*partsBetweenUpdates))
+	# Intpolate color slowly
+	$Tween.interpolate_property(tileMap.get_material(), "shader_param/ColorLevel", previousColorFrac, colorFraction, 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 0)
+	$Tween.start()
