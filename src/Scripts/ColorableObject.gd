@@ -48,6 +48,6 @@ func playHitSound(isCorrect):
 		else:
 			hitSound = load("res://Music/SFX/hit_valid_target_" + str(i) + ".wav")
 	else:
-		hitSound = load("res://Music/SFX/hit_invalid_target_" + str(i) + ".wav")
+		hitSound = load("res://Music/SFX/hit_invalid_target.wav")
 	$AudioStreamPlayer2D.stream = hitSound
 	$AudioStreamPlayer2D.play()
