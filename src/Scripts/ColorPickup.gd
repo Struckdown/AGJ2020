@@ -6,13 +6,13 @@ export(String, "RED", "GREEN", "BLUE") var color
 func _ready():
 	match color:
 		"RED":
-			$Sprite.modulate = Color(1, 0, 0)
+			$Sprite.texture = load("res://Art/powerFlowerR.png")
 			$AudioStreamPlayer2D.stream = load("res://Music/SFX/collect_red.wav")
 		"GREEN":
-			$Sprite.modulate = Color(0, 1, 0)
+			$Sprite.texture = load("res://Art/powerFlowerG.png")
 			$AudioStreamPlayer2D.stream = load("res://Music/SFX/collect_green.wav")
 		"BLUE":
-			$Sprite.modulate = Color(0, 0, 1)
+			$Sprite.texture = load("res://Art/powerFlowerB.png")
 			$AudioStreamPlayer2D.stream = load("res://Music/SFX/collect_blue.wav")
 		_:
 			print("No color found! Defaulting to red!")
@@ -28,6 +28,7 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
 		body.updateColor(color)
 		$AudioStreamPlayer2D.play()
+		$AnimationPlayer.play("flowerAnimate")
 
 func _on_AudioStreamPlayer2D_finished():
 	pass
