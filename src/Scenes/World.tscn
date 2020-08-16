@@ -256,5 +256,6 @@ mouseover_soundeffect_node = NodePath("../Pause Menu/mouseover_soundeffect")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 1.5, 1.5 )
 script = ExtResource( 13 )
 Player_Path = NodePath("../Character")

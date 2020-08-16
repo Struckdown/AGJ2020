@@ -33,7 +33,8 @@ func objectColored():
 		updateTilemap()
 	GlobalMusicPlayer.transitionToNextSong()
 	if objectsColored >= partsBetweenUpdates*totalAmountOfUpdates:
-		var _error = get_tree().change_scene("res://Scenes/VictoryLevel.tscn")
+		$LevelVictoryDelay.start()
+
 
 func updateTilemap():
 	previousColorFrac = colorFraction
@@ -42,3 +43,7 @@ func updateTilemap():
 	$Tween.interpolate_property(tileMap.get_material(), "shader_param/ColorLevel", previousColorFrac, colorFraction, 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 0)
 	$Tween.start()
 	player.playSparkles()
+
+
+func _on_LevelVictoryDelay_timeout():
+	var _error = get_tree().change_scene("res://Scenes/VictoryLevel.tscn")
