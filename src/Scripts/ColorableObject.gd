@@ -1,7 +1,7 @@
 extends Node2D
 
 export(String, "RED", "GREEN", "BLUE") var acceptableColor
-export(String, "propBush1", "propRoadPost", "propBench") var propType
+export(String, "propBush1", "propRoadPost", "propBench", "propBush2", "propCarB","propGarbage","propRecycle","propRock1", "propRock2","propTree1") var propType
 var colorFraction = 0
 var levelManager
 signal colored
