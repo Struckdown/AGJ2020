@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scripts/World.gd" type="Script" id=10]
 [ext_resource path="res://Art/tileFences.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/FadeinLayer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=13]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 6 )
@@ -231,17 +232,14 @@ player_Path = NodePath("../Character")
 
 [node name="ColorPickup" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1307.55, 121.307 )
-scale = Vector2( 0.179823, 0.179823 )
 color = "RED"
 
 [node name="ColorPickup2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 172.027, 136.772 )
-scale = Vector2( 0.179823, 0.179823 )
 color = "GREEN"
 
 [node name="ColorPickup3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 310.117, 218.735 )
-scale = Vector2( 0.179823, 0.179823 )
 color = "BLUE"
 
 [node name="StopwatchTimer" type="Node" parent="."]
@@ -255,3 +253,8 @@ application_close_button_node = NodePath("../Pause Menu/PauseMenuLayer/CenterCon
 mouseover_soundeffect_node = NodePath("../Pause Menu/mouseover_soundeffect")
 
 [node name="FadeinLayer" parent="." instance=ExtResource( 12 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 13 )
+Player_Path = NodePath("../Character")
