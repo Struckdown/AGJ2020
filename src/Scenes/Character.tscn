@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Art/pl_front.png" type="Texture" id=2]
@@ -8,11 +8,12 @@
 [ext_resource path="res://Art/rainBow.png" type="Texture" id=6]
 [ext_resource path="res://Music/SFX/bow_fire_1.wav" type="AudioStream" id=7]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=8]
+[ext_resource path="res://Art/sparkle.png" type="Texture" id=9]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 12.4722, 24.1308 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 resource_name = "downAnim"
 length = 0.6
 loop = true
@@ -41,8 +42,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "sideAnim"
+[sub_resource type="Animation" id=5]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -70,8 +70,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "upAnim"
+[sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -99,8 +98,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "BowCharge"
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rain Bow:visible")
@@ -115,7 +113,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rain Bow:visible")
@@ -130,6 +128,23 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 900, 800, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_random = 1.0
+anim_speed = 4.0
+anim_offset_random = 1.0
+
 [node name="Character" type="KinematicBody2D" groups=[
 "player",
 ]]
@@ -142,7 +157,7 @@ hframes = 7
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -153,9 +168,9 @@ script = ExtResource( 8 )
 
 [node name="RaineAnimPlayer" type="AnimationPlayer" parent="."]
 autoplay = "upAnim"
-anims/downAnim = SubResource( 2 )
-anims/sideAnim = SubResource( 3 )
-anims/upAnim = SubResource( 4 )
+anims/downAnim = SubResource( 4 )
+anims/sideAnim = SubResource( 5 )
+anims/upAnim = SubResource( 6 )
 
 [node name="Rain Bow" type="Sprite" parent="."]
 texture = ExtResource( 6 )
@@ -163,8 +178,19 @@ hframes = 4
 frame = 1
 
 [node name="BowAnimPlayer" type="AnimationPlayer" parent="."]
-anims/BowCharge = SubResource( 5 )
-anims/BowFire = SubResource( 6 )
+anims/BowCharge = SubResource( 7 )
+anims/BowFire = SubResource( 8 )
 
 [node name="BowSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
+
+[node name="ScreenParticles" type="Particles2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( 226.998, 127.786 )
+emitting = false
+amount = 75
+one_shot = true
+visibility_rect = Rect2( -200, -200, 400, 400 )
+local_coords = false
+process_material = SubResource( 2 )
+texture = ExtResource( 9 )

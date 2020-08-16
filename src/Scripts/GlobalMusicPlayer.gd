@@ -58,8 +58,6 @@ func _on_GlobalMusicPlayer_finished():
 		finishedTransition = false
 		isTransitioning = false
 
-	print("Now playing: " + songPath)
-
 	shouldTransition = false
 
 func transitionToEndingSong():

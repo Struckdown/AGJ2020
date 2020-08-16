@@ -92,6 +92,7 @@ acceptableColor = "RED"
 partsBetweenUpdates = 1
 UI_Path = NodePath("../UI")
 tileMap_Path = NodePath("../TileMap")
+player_Path = NodePath("../Character")
 
 [node name="Pause Control" type="Control" parent="."]
 pause_mode = 2

@@ -93,3 +93,6 @@ func updateBow():
 func updateColor(newColor):
 	colorEquipped = newColor
 	weaponColors = newColor
+
+func playSparkles():
+	$ScreenParticles.emitting = true

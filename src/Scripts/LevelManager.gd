@@ -10,13 +10,15 @@ export(NodePath) var UI_Path
 var UI
 export(NodePath) var tileMap_Path
 var tileMap
-
+export(NodePath) var player_Path
+var player
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	UI = get_node(UI_Path)
 	tileMap = get_node(tileMap_Path)
+	player = get_node(player_Path)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -39,3 +41,4 @@ func updateTilemap():
 	# Intpolate color slowly
 	$Tween.interpolate_property(tileMap.get_material(), "shader_param/ColorLevel", previousColorFrac, colorFraction, 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 0)
 	$Tween.start()
+	player.playSparkles()
