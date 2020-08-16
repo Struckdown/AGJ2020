@@ -43,6 +43,7 @@ func _pause_toggle(on: bool) -> void:
 
 func _main_menu_switch() -> void:
 	get_tree().change_scene(main_menu_scene)
+	get_tree().paused = false
 
 func _quit_application() -> void:
 	get_tree().quit()
