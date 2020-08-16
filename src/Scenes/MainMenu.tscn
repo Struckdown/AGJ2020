@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/FadeoutRect.gd" type="Script" id=1]
 [ext_resource path="res://Music/SFX/menu_button_hover.wav" type="AudioStream" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Art/mockup.png" type="Texture" id=4]
 [ext_resource path="res://Shaders/grayscale.tres" type="Shader" id=5]
 [ext_resource path="res://Music/rainbow_title.wav" type="AudioStream" id=6]
+[ext_resource path="res://Art/exitButton.png" type="Texture" id=7]
+[ext_resource path="res://Art/playButton.png" type="Texture" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -45,22 +47,22 @@ margin_right = 269.947
 margin_bottom = 75.4489
 text = "Raine Bow"
 
-[node name="PlayButton" type="Button" parent="."]
-margin_left = 208.714
-margin_top = 144.087
-margin_right = 262.714
-margin_bottom = 166.087
-text = "Play"
+[node name="PlayButton" type="TextureButton" parent="."]
+margin_left = 4.57764e-05
+margin_top = 212.747
+margin_right = 114.0
+margin_bottom = 270.747
+texture_normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitBtn" type="Button" parent="."]
-margin_left = 208.714
-margin_top = 176.159
-margin_right = 262.714
-margin_bottom = 198.159
-text = "Exit"
+[node name="ExitButton" type="TextureButton" parent="."]
+margin_left = 391.437
+margin_top = 220.735
+margin_right = 505.437
+margin_bottom = 278.735
+texture_normal = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -78,6 +80,7 @@ size_flags_vertical = 3
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -87,7 +90,5 @@ anims/fade_to_black = SubResource( 2 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
-[connection signal="mouse_entered" from="PlayButton" to="." method="_on_PlayButton_mouse_entered"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="mouse_entered" from="ExitBtn" to="." method="_on_PlayButton_mouse_entered"]
-[connection signal="pressed" from="ExitBtn" to="." method="_on_ExitBtn_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitBtn_pressed"]
