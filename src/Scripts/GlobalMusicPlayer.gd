@@ -21,6 +21,15 @@ func _ready():
 	play()
 
 
+func reset():
+	songLevel = 1
+	desiredLevel = 1
+	playing = false
+
+func start():
+	stream = load("res://Music/theme_1.wav")
+	play()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
