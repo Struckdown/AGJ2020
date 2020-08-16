@@ -130,7 +130,9 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[node name="Character" type="KinematicBody2D"]
+[node name="Character" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 1 )
 projectile = ExtResource( 3 )
 

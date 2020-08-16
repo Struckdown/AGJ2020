@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
@@ -6,12 +6,13 @@
 [ext_resource path="res://Scenes/LevelManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/WorldTileset.tres" type="TileSet" id=5]
 [ext_resource path="res://Shaders/grayscale.tres" type="Shader" id=6]
+[ext_resource path="res://Scenes/ColorPickup.tscn" type="PackedScene" id=7]
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 6 )
 shader_param/ColorLevel = 0.0
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=2]
 emission_shape = 2
 emission_box_extents = Vector3( 300, 400, 1 )
 flag_disable_z = true
@@ -23,7 +24,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color = Color( 0.207843, 0.682353, 0.780392, 1 )
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=3]
 script/source = "extends Control
 
 
@@ -52,7 +53,7 @@ __meta__ = {
 }
 
 [node name="TileMap" type="TileMap" parent="."]
-material = SubResource( 3 )
+material = SubResource( 1 )
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 32, 32 )
 format = 1
@@ -71,7 +72,7 @@ scale = Vector2( 3.16637, 3.16637 )
 amount = 600
 lifetime = 5.0
 local_coords = false
-process_material = SubResource( 1 )
+process_material = SubResource( 2 )
 
 [node name="ColorableObject3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 318.272, 37.2175 )
@@ -93,7 +94,7 @@ tileMap_Path = NodePath("../TileMap")
 pause_mode = 2
 margin_right = 40.0
 margin_bottom = 40.0
-script = SubResource( 2 )
+script = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -101,3 +102,18 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="Pause Control"]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="ColorPickup" parent="." instance=ExtResource( 7 )]
+position = Vector2( 171.136, 210.271 )
+scale = Vector2( 0.179823, 0.179823 )
+color = "RED"
+
+[node name="ColorPickup2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 172.027, 136.772 )
+scale = Vector2( 0.179823, 0.179823 )
+color = "GREEN"
+
+[node name="ColorPickup3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 310.117, 218.735 )
+scale = Vector2( 0.179823, 0.179823 )
+color = "BLUE"

@@ -10,6 +10,7 @@ var maxCharge = 100
 var bowLength = 25
 export (PackedScene) var projectile
 
+export(String, "NONE", "RED", "GREEN", "BLUE") var weaponColors
 var colorEquipped
 var colorNone = Color(0, 0, 0)
 var colorRed = Color(255, 0, 0)
@@ -24,7 +25,7 @@ enum {LEFT, UP, DOWN, RIGHT}
 func _ready():
 	updateBow()
 	currentCharge = 0
-	colorEquipped = colorBlue
+	updateColor("RED")
 
 func get_input():
 	velocity = Vector2.ZERO
@@ -87,3 +88,14 @@ func updateBow():
 	$"Rain Bow".rotation = get_angle_to(get_global_mouse_position())
 	#$"Rain Bow".offset = Vector2(bowOffset, 0)
 	$"Rain Bow".offset = Vector2(bowLength, 0)
+
+
+func updateColor(color):
+	match color:
+		"RED":
+			colorEquipped = colorRed
+		"GREEN":
+			colorEquipped = colorGreen
+		"BLUE":
+			colorEquipped = colorBlue
+	print("Weapon color is now: " + str(colorEquipped))
