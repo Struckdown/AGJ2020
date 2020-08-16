@@ -20,7 +20,8 @@ onready var time_label := get_node(time_label_node)
 # Declare member variables here. Examples:
 var win_menu_open = false
 var game_won = false
-var final_time = "N/A"
+var final_time_string = "N/A"
+var final_time_seconds = -1
 
 
 # Called when the node enters the scene tree for the first time.
@@ -44,10 +45,15 @@ func _process(delta):
 func _win_menu_toggle(on: bool) -> void:
 	if on:
 		if not game_won:
-			final_time = timer.get_formatted_time()
 			timer.paused = true
-			time_label.text = final_time
-		game_won = true
+			final_time_seconds = timer.get_seconds()
+			final_time_string = timer.get_formatted_time()
+			time_label.text = final_time_string
+			GameManager.game_has_been_won_before = true
+			if final_time_seconds > GameManager.high_score_seconds:
+				GameManager.high_score_seconds = final_time_seconds
+				GameManager.high_score_string = final_time_string
+			game_won = true
 	win_menu_open = on
 	top_level_control.visible = on
 	
