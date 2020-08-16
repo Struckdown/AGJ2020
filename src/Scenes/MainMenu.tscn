@@ -1,8 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/FadeoutRect.gd" type="Script" id=1]
 [ext_resource path="res://Music/SFX/menu_button_hover.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://Art/mockup.png" type="Texture" id=4]
+[ext_resource path="res://Shaders/grayscale.tres" type="Shader" id=5]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 5 )
+shader_param/ColorLevel = null
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_to_black"
@@ -26,6 +32,11 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BG" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 238.11, 134.929 )
+texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 203.947
