@@ -59,7 +59,8 @@ anims/default = SubResource( 2 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 material = SubResource( 3 )
-amount = 6
+amount = 16
+speed_scale = 0.39
 local_coords = false
 process_material = SubResource( 4 )
 texture = ExtResource( 3 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/WorldTileset.tres" type="TileSet" id=5]
 [ext_resource path="res://Shaders/grayscale.tres" type="Shader" id=6]
 [ext_resource path="res://Scenes/ColorPickup.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/SplashPuddle.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 6 )
@@ -65,9 +64,9 @@ __meta__ = {
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
 position = Vector2( 238.52, 123.967 )
-scale = Vector2( 0.315819, 0.315819 )
 
 [node name="Particles2D" type="Particles2D" parent="Character"]
+visible = false
 position = Vector2( -1.4071, 92.6234 )
 scale = Vector2( 3.16637, 3.16637 )
 amount = 600
@@ -93,7 +92,6 @@ acceptableColor = "RED"
 partsBetweenUpdates = 1
 UI_Path = NodePath("../UI")
 tileMap_Path = NodePath("../TileMap")
-player_Path = NodePath("../Character")
 
 [node name="Pause Control" type="Control" parent="."]
 pause_mode = 2
@@ -122,6 +120,3 @@ color = "GREEN"
 position = Vector2( 310.117, 218.735 )
 scale = Vector2( 0.179823, 0.179823 )
 color = "BLUE"
-
-[node name="SplashPuddle" parent="." instance=ExtResource( 8 )]
-position = Vector2( 191.271, 116.524 )
