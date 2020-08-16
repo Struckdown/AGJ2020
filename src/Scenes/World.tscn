@@ -90,7 +90,7 @@ acceptableColor = "RED"
 [node name="UI" parent="." instance=ExtResource( 2 )]
 
 [node name="LevelManager" parent="." instance=ExtResource( 4 )]
-partsBetweenUpdates = 2
+partsBetweenUpdates = 1
 UI_Path = NodePath("../UI")
 tileMap_Path = NodePath("../TileMap")
 player_Path = NodePath("../Character")
