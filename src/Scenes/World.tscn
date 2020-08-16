@@ -401,7 +401,6 @@ script = ExtResource( 9 )
 
 [node name="Pause Menu" parent="." instance=ExtResource( 8 )]
 top_level_control_node = NodePath("../Pause Menu/PauseMenuLayer/CenterContainer")
-win_menu_node = NodePath("../Win Menu")
 
 [node name="FadeinLayer" parent="." instance=ExtResource( 12 )]
 

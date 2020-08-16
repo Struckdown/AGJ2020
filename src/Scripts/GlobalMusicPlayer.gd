@@ -22,17 +22,16 @@ func _ready():
 
 
 func reset():
-	songLevel = 1
-	desiredLevel = 1
+	songLevel = 0
+	desiredLevel = 0
 	playing = false
 
 func start():
 	stream = load("res://Music/theme_1.wav")
+	songLevel = 1
+	desiredLevel = 1
 	play()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func transitionToNextSong():
 	desiredLevel += 1
@@ -40,6 +39,8 @@ func transitionToNextSong():
 
 # Called when a track finishes. Decide if to loop or play the next song
 func _on_GlobalMusicPlayer_finished():
+	if songLevel == 0:
+		return
 	if songLevel != desiredLevel:
 		shouldTransition = true
 

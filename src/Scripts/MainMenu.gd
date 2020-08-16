@@ -14,6 +14,7 @@ func _ready():
 
 func _on_PlayButton_pressed():
 	GlobalMusicPlayer.start()
+	$ThunderSFX.play()
 	$FadeoutRect.transition_to("res://Scenes/World.tscn", 2)
 	
 
