@@ -51,6 +51,7 @@ tracks/1/keys = {
 }
 
 [node name="SplashPuddle" type="Node2D"]
+z_index = -1
 script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -62,14 +63,15 @@ tile_data = PoolIntArray( -1, 0, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
+position = Vector2( 0.397301, -11.919 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 4
-frame = 5
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.927032, -11.2568 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

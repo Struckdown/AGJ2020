@@ -21,18 +21,6 @@
 shader = ExtResource( 6 )
 shader_param/ColorLevel = 0.0
 
-[sub_resource type="ParticlesMaterial" id=2]
-emission_shape = 2
-emission_box_extents = Vector3( 300, 400, 1 )
-flag_disable_z = true
-direction = Vector3( 1, 2, 0 )
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 153.27
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-color = Color( 0.207843, 0.682353, 0.780392, 1 )
-
 [sub_resource type="TileSet" id=3]
 0/name = "tileFences.png 0"
 0/texture = ExtResource( 11 )
@@ -184,6 +172,18 @@ color = Color( 0.207843, 0.682353, 0.780392, 1 )
 9/shapes = [  ]
 9/z_index = 0
 
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 300, 400, 1 )
+flag_disable_z = true
+direction = Vector3( 1, 2, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 153.27
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 0.207843, 0.682353, 0.780392, 1 )
+
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 1153.61, 10 )
 
@@ -199,6 +199,7 @@ time_node = NodePath("StopwatchTimer")
 
 [node name="TileMap" type="TileMap" parent="."]
 material = SubResource( 1 )
+z_index = -5
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 32, 32 )
 format = 1
@@ -206,138 +207,6 @@ tile_data = PoolIntArray( -3735537, 1073741857, 0, -3735526, 1073741857, 0, -373
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Character" parent="." instance=ExtResource( 1 )]
-position = Vector2( 230.323, 16.6304 )
-
-[node name="Particles2D" type="Particles2D" parent="Character"]
-position = Vector2( -1.4071, 92.6234 )
-scale = Vector2( 3.16637, 3.16637 )
-amount = 600
-lifetime = 5.0
-local_coords = false
-process_material = SubResource( 2 )
-
-[node name="ColorableObject3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 328, -32 )
-acceptableColor = "GREEN"
-
-[node name="ColorableObject11" parent="." instance=ExtResource( 3 )]
-position = Vector2( 37.2154, 211.557 )
-acceptableColor = "BLUE"
-propType = "propGarbage"
-
-[node name="ColorableObject12" parent="." instance=ExtResource( 3 )]
-position = Vector2( 128, 211.497 )
-acceptableColor = "BLUE"
-propType = "propRecycle"
-
-[node name="ColorableObject10" parent="." instance=ExtResource( 3 )]
-position = Vector2( 690.045, -124.59 )
-acceptableColor = "BLUE"
-propType = "propCarB"
-
-[node name="ColorableObject4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 128, -32 )
-acceptableColor = "GREEN"
-
-[node name="ColorableObject2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1574.56, -479.656 )
-acceptableColor = "GREEN"
-
-[node name="ColorableObject" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1226.56, -5.80276 )
-acceptableColor = "RED"
-propType = "propBench"
-
-[node name="ColorableObject13" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1487.53, 101 )
-acceptableColor = "GREEN"
-propType = "propTree1"
-
-[node name="ColorableObject15" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1253.3, -229.346 )
-acceptableColor = "GREEN"
-propType = "propBush2"
-
-[node name="ColorableObject16" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1446.56, -321.774 )
-acceptableColor = "GREEN"
-propType = "propBush2"
-
-[node name="ColorableObject17" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1208, -572.991 )
-acceptableColor = "GREEN"
-propType = "propTree1"
-
-[node name="ColorableObject8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 966.12, 138 )
-acceptableColor = "RED"
-propType = "propRoadPost"
-
-[node name="ColorableObject9" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1062.62, 138 )
-acceptableColor = "RED"
-propType = "propRoadPost"
-
-[node name="ColorableObject5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1615.53, -784 )
-acceptableColor = "GREEN"
-propType = "propTree1"
-
-[node name="ColorableObject18" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1814.72, -1235.08 )
-acceptableColor = "GREEN"
-propType = "propTree1"
-
-[node name="ColorableObject25" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2164.96, -1310.98 )
-acceptableColor = "BLUE"
-propType = "propGarbage"
-
-[node name="ColorableObject26" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2292.96, -1310.98 )
-acceptableColor = "BLUE"
-propType = "propRecycle"
-
-[node name="ColorableObject23" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1446.56, -1268.74 )
-acceptableColor = "GREEN"
-
-[node name="ColorableObject24" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1238.27, -1202.88 )
-acceptableColor = "GREEN"
-propType = "propBush2"
-
-[node name="ColorableObject19" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1916.65, -1095.2 )
-acceptableColor = "RED"
-propType = "propBench"
-
-[node name="ColorableObject20" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2119.46, -847.654 )
-acceptableColor = "RED"
-propType = "propRock1"
-
-[node name="ColorableObject21" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1890.67, -719.654 )
-acceptableColor = "RED"
-propType = "propRock2"
-
-[node name="ColorableObject22" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2195.37, -607.656 )
-acceptableColor = "BLUE"
-propType = "propCarB"
-
-[node name="ColorableObject6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1080, -872 )
-acceptableColor = "RED"
-propType = "propRock1"
-
-[node name="ColorableObject7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 984, -672 )
-acceptableColor = "RED"
-propType = "propRock2"
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
@@ -348,11 +217,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ColorableObject14" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1686.72, -66.061 )
-acceptableColor = "GREEN"
-propType = "propTree1"
-
 [node name="UI" parent="." instance=ExtResource( 2 )]
 time_node = NodePath("../StopwatchTimer")
 win_menu_node = NodePath("../Win Menu")
@@ -360,44 +224,8 @@ win_menu_node = NodePath("../Win Menu")
 [node name="LevelManager" parent="." instance=ExtResource( 4 )]
 UI_Path = NodePath("../UI")
 tileMap_Path = NodePath("../TileMap")
-player_Path = NodePath("../Character")
+player_Path = NodePath("../YSort/Character")
 win_menu_path = NodePath("../Win Menu")
-
-[node name="ColorPickup" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1269.3, 164.242 )
-color = "RED"
-
-[node name="ColorPickup5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1392.95, -831.654 )
-color = "RED"
-
-[node name="ColorPickup6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1285.3, -831.654 )
-color = "BLUE"
-
-[node name="ColorPickup2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1027.57, -33.6741 )
-color = "GREEN"
-
-[node name="ColorPickup4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1338.75, -831.654 )
-color = "GREEN"
-
-[node name="ColorPickup7" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2292.96, -944.29 )
-color = "RED"
-
-[node name="ColorPickup8" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1991.46, -1268.74 )
-color = "BLUE"
-
-[node name="ColorPickup9" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2036.96, -591.654 )
-color = "GREEN"
-
-[node name="ColorPickup3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 81.4959, 154 )
-color = "BLUE"
 
 [node name="StopwatchTimer" type="Node" parent="."]
 script = ExtResource( 9 )
@@ -414,7 +242,7 @@ time_node = NodePath("../StopwatchTimer")
 current = true
 zoom = Vector2( 1.5, 1.5 )
 script = ExtResource( 13 )
-Player_Path = NodePath("../Character")
+Player_Path = NodePath("../YSort/Character")
 
 [node name="Prop" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1238.27, -444.991 )
@@ -427,44 +255,186 @@ propType = "streetlightL"
 position = Vector2( 1125.3, -1122.88 )
 propType = "streetlightR"
 
-[node name="Collision" type="StaticBody2D" parent="."]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Character" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 230.323, 16.6304 )
+z_index = 0
+
+[node name="Particles2D" type="Particles2D" parent="YSort/Character"]
+position = Vector2( -1.4071, 92.6234 )
+scale = Vector2( 3.16637, 3.16637 )
+amount = 600
+lifetime = 5.0
+local_coords = false
+process_material = SubResource( 2 )
+
+[node name="ColorableObject3" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 328, -32 )
+acceptableColor = "GREEN"
+
+[node name="ColorableObject11" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 37.2154, 211.557 )
+acceptableColor = "BLUE"
+propType = "propGarbage"
+
+[node name="ColorableObject12" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 128, 211.497 )
+acceptableColor = "BLUE"
+propType = "propRecycle"
+
+[node name="ColorableObject10" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 690.045, -124.59 )
+acceptableColor = "BLUE"
+propType = "propCarB"
+
+[node name="ColorableObject4" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 128, -32 )
+acceptableColor = "GREEN"
+
+[node name="ColorableObject2" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1574.56, -479.656 )
+acceptableColor = "GREEN"
+
+[node name="ColorableObject" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1226.56, -5.80276 )
+acceptableColor = "RED"
+propType = "propBench"
+
+[node name="ColorableObject13" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1487.53, 101 )
+acceptableColor = "GREEN"
+propType = "propTree1"
+
+[node name="ColorableObject15" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1253.3, -229.346 )
+acceptableColor = "GREEN"
+propType = "propBush2"
+
+[node name="ColorableObject16" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1446.56, -321.774 )
+acceptableColor = "GREEN"
+propType = "propBush2"
+
+[node name="ColorableObject17" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1208, -572.991 )
+acceptableColor = "GREEN"
+propType = "propTree1"
+
+[node name="ColorableObject8" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 966.12, 138 )
+acceptableColor = "RED"
+propType = "propRoadPost"
+
+[node name="ColorableObject9" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1062.62, 138 )
+acceptableColor = "RED"
+propType = "propRoadPost"
+
+[node name="ColorableObject5" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1615.53, -784 )
+acceptableColor = "GREEN"
+propType = "propTree1"
+
+[node name="ColorableObject18" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1814.72, -1235.08 )
+acceptableColor = "GREEN"
+propType = "propTree1"
+
+[node name="ColorableObject25" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 2164.96, -1310.98 )
+acceptableColor = "BLUE"
+propType = "propGarbage"
+
+[node name="ColorableObject26" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 2292.96, -1310.98 )
+acceptableColor = "BLUE"
+propType = "propRecycle"
+
+[node name="ColorableObject23" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1446.56, -1268.74 )
+acceptableColor = "GREEN"
+
+[node name="ColorableObject24" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1238.27, -1202.88 )
+acceptableColor = "GREEN"
+propType = "propBush2"
+
+[node name="ColorableObject19" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1916.65, -1095.2 )
+acceptableColor = "RED"
+propType = "propBench"
+
+[node name="ColorableObject20" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 2119.46, -847.654 )
+acceptableColor = "RED"
+propType = "propRock1"
+
+[node name="ColorableObject21" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1890.67, -719.654 )
+acceptableColor = "RED"
+propType = "propRock2"
+
+[node name="ColorableObject22" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 2195.37, -607.656 )
+acceptableColor = "BLUE"
+propType = "propCarB"
+
+[node name="ColorableObject6" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1080, -872 )
+acceptableColor = "RED"
+propType = "propRock1"
+
+[node name="ColorableObject7" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 984, -672 )
+acceptableColor = "RED"
+propType = "propRock2"
+
+[node name="ColorableObject14" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 1686.72, -66.061 )
+acceptableColor = "GREEN"
+propType = "propTree1"
+
+[node name="CollisionGroup" type="Node" parent="."]
+
+[node name="Collision" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( 690.045, 286.979 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/Collision"]
 shape = SubResource( 4 )
 
-[node name="Collision2" type="StaticBody2D" parent="."]
+[node name="Collision2" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( 2563.27, -462.359 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/Collision2"]
 shape = SubResource( 4 )
 
-[node name="Collision5" type="StaticBody2D" parent="."]
+[node name="Collision5" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( 1773.52, -1377.96 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/Collision5"]
 shape = SubResource( 4 )
 
-[node name="Collision3" type="StaticBody2D" parent="."]
+[node name="Collision3" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( 2382, -672 )
 rotation = 1.5708
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/Collision3"]
 shape = SubResource( 4 )
 
-[node name="Collision6" type="StaticBody2D" parent="."]
+[node name="Collision6" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( 894.414, -1030.77 )
 rotation = 1.5708
 scale = Vector2( 1, 0.5 )
@@ -472,10 +442,10 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/Collision6"]
 shape = SubResource( 4 )
 
-[node name="Collision12" type="StaticBody2D" parent="."]
+[node name="Collision12" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( 898.459, 286.979 )
 rotation = 1.5708
 scale = Vector2( 0.05, 0.5 )
@@ -483,83 +453,123 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision12"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/Collision12"]
 shape = SubResource( 4 )
 
-[node name="Collision11" type="StaticBody2D" parent="."]
+[node name="Collision11" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( -6.231, 61.939 )
 rotation = 1.5708
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision11"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/Collision11"]
 shape = SubResource( 4 )
 
-[node name="Collision7" type="StaticBody2D" parent="."]
+[node name="Collision7" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( 1044.97, -462.359 )
 scale = Vector2( 0.2, 0.5 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision7"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/Collision7"]
 shape = SubResource( 4 )
 
-[node name="Collision8" type="StaticBody2D" parent="."]
+[node name="Collision8" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( 650.788, -124.59 )
 scale = Vector2( 0.2, 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision8"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/Collision8"]
 shape = SubResource( 4 )
 
-[node name="Collision10" type="StaticBody2D" parent="."]
+[node name="Collision10" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( 193.304, -71.0485 )
 scale = Vector2( 0.25, 0.25 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision10"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/Collision10"]
 shape = SubResource( 4 )
 
-[node name="Collision4" type="StaticBody2D" parent="."]
+[node name="Collision4" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( 1788.53, 687.467 )
 rotation = 1.5708
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/Collision4"]
 shape = SubResource( 4 )
 
-[node name="SplashPuddle" parent="." instance=ExtResource( 16 )]
-position = Vector2( 426.577, 81 )
-
-[node name="SplashPuddle2" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1125.3, -321.774 )
-
-[node name="SplashPuddle4" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1722.4, -607.656 )
-
-[node name="SplashPuddle5" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1686.72, -1122.88 )
-
-[node name="SplashPuddle7" parent="." instance=ExtResource( 16 )]
-position = Vector2( 2195.37, -1107.08 )
-
-[node name="SplashPuddle6" parent="." instance=ExtResource( 16 )]
-position = Vector2( 994.65, -1253.38 )
-
-[node name="SplashPuddle3" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1002.65, -193.774 )
-
-[node name="FountainCollision" type="StaticBody2D" parent="."]
+[node name="FountainCollision" type="StaticBody2D" parent="CollisionGroup"]
 position = Vector2( 1344.38, -967.2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FountainCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionGroup/FountainCollision"]
 position = Vector2( 0, 15.4164 )
 shape = SubResource( 5 )
+
+[node name="SplashPuddles" type="Node" parent="."]
+
+[node name="SplashPuddle" parent="SplashPuddles" instance=ExtResource( 16 )]
+position = Vector2( 426.577, 81 )
+
+[node name="SplashPuddle2" parent="SplashPuddles" instance=ExtResource( 16 )]
+position = Vector2( 1125.3, -321.774 )
+
+[node name="SplashPuddle4" parent="SplashPuddles" instance=ExtResource( 16 )]
+position = Vector2( 1722.4, -607.656 )
+
+[node name="SplashPuddle5" parent="SplashPuddles" instance=ExtResource( 16 )]
+position = Vector2( 1686.72, -1122.88 )
+
+[node name="SplashPuddle7" parent="SplashPuddles" instance=ExtResource( 16 )]
+position = Vector2( 2195.37, -1107.08 )
+
+[node name="SplashPuddle6" parent="SplashPuddles" instance=ExtResource( 16 )]
+position = Vector2( 994.65, -1253.38 )
+
+[node name="SplashPuddle3" parent="SplashPuddles" instance=ExtResource( 16 )]
+position = Vector2( 1002.65, -193.774 )
+
+[node name="ColorPickups" type="Node" parent="."]
+
+[node name="ColorPickup" parent="ColorPickups" instance=ExtResource( 7 )]
+position = Vector2( 1269.3, 164.242 )
+color = "RED"
+
+[node name="ColorPickup5" parent="ColorPickups" instance=ExtResource( 7 )]
+position = Vector2( 1392.95, -831.654 )
+color = "RED"
+
+[node name="ColorPickup6" parent="ColorPickups" instance=ExtResource( 7 )]
+position = Vector2( 1285.3, -831.654 )
+color = "BLUE"
+
+[node name="ColorPickup2" parent="ColorPickups" instance=ExtResource( 7 )]
+position = Vector2( 1027.57, -33.6741 )
+color = "GREEN"
+
+[node name="ColorPickup4" parent="ColorPickups" instance=ExtResource( 7 )]
+position = Vector2( 1338.75, -831.654 )
+color = "GREEN"
+
+[node name="ColorPickup7" parent="ColorPickups" instance=ExtResource( 7 )]
+position = Vector2( 2292.96, -944.29 )
+color = "RED"
+
+[node name="ColorPickup8" parent="ColorPickups" instance=ExtResource( 7 )]
+position = Vector2( 1991.46, -1268.74 )
+color = "BLUE"
+
+[node name="ColorPickup9" parent="ColorPickups" instance=ExtResource( 7 )]
+position = Vector2( 2036.96, -591.654 )
+color = "GREEN"
+
+[node name="ColorPickup3" parent="ColorPickups" instance=ExtResource( 7 )]
+position = Vector2( 81.4959, 154 )
+color = "BLUE"
