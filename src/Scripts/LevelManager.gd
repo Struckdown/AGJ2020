@@ -28,6 +28,7 @@ func _ready():
 
 func objectColored():
 	objectsColored += 1
+	#print(objectsColored)
 	UI.score += 1
 	UI.update()
 	if objectsColored % partsBetweenUpdates == 0:
