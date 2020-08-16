@@ -48,6 +48,8 @@ func _on_GlobalMusicPlayer_finished():
 		isTransitioning = false
 		finishedTransition = true
 	if shouldTransition:
+		if songLevel > 4:
+			songLevel = 4
 		songLevel += 1
 		if songLevel != 3:
 			songPath = "res://Music/theme_" + str(songLevel) + "_tran.wav"
