@@ -28,10 +28,12 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
 		body.updateColor(color)
 		$Sprite.hide()
-		$Area2D/CollisionShape2D.disabled = true
+		call_deferred("disableCollision")
 		$AudioStreamPlayer2D.play()
 		
 
+func disableCollision():
+	$Area2D/CollisionShape2D.disabled = true
 
 func _on_AudioStreamPlayer2D_finished():
 	queue_free()
