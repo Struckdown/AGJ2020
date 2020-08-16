@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Art/pl_front.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Art/pl_side.png" type="Texture" id=5]
 [ext_resource path="res://Art/rainBow.png" type="Texture" id=6]
 [ext_resource path="res://Music/SFX/bow_fire_1.wav" type="AudioStream" id=7]
-[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=8]
 [ext_resource path="res://Art/sparkle.png" type="Texture" id=9]
 [ext_resource path="res://Art/rainSplash.png" type="Texture" id=10]
 [ext_resource path="res://Music/SFX/walk_grass.wav" type="AudioStream" id=11]
@@ -44,7 +43,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=3]
 resource_name = "downIdleAnim"
 length = 0.1
 loop = true
@@ -73,7 +72,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -101,7 +100,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=5]
 resource_name = "sideIdleAnim"
 length = 0.1
 loop = true
@@ -130,7 +129,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -158,7 +157,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=7]
 resource_name = "upIdleAnim"
 length = 0.1
 loop = true
@@ -187,7 +186,7 @@ tracks/1/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=8]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rain Bow:visible")
@@ -202,7 +201,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=9]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Rain Bow:visible")
@@ -217,13 +216,13 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=7]
+[sub_resource type="CanvasItemMaterial" id=10]
 particles_animation = true
 particles_anim_h_frames = 2
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=11]
 emission_shape = 2
 emission_box_extents = Vector3( 800, 700, 1 )
 flag_disable_z = true
@@ -232,13 +231,13 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 anim_speed = 4.0
 
-[sub_resource type="CanvasItemMaterial" id=9]
+[sub_resource type="CanvasItemMaterial" id=12]
 particles_animation = true
 particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=13]
 emission_shape = 2
 emission_box_extents = Vector3( 800, 700, 1 )
 flag_disable_z = true
@@ -257,32 +256,20 @@ script = ExtResource( 1 )
 projectile = ExtResource( 3 )
 
 [node name="Raine" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 hframes = 7
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-smoothing_speed = 8.0
-drag_margin_left = 0.15
-drag_margin_top = 0.15
-drag_margin_right = 0.15
-drag_margin_bottom = 0.15
-script = ExtResource( 8 )
-
 [node name="RaineAnimPlayer" type="AnimationPlayer" parent="."]
 anims/downAnim = SubResource( 2 )
-anims/downIdleAnim = SubResource( 11 )
-anims/sideAnim = SubResource( 3 )
-anims/sideIdleAnim = SubResource( 12 )
-anims/upAnim = SubResource( 4 )
-anims/upIdleAnim = SubResource( 13 )
+anims/downIdleAnim = SubResource( 3 )
+anims/sideAnim = SubResource( 4 )
+anims/sideIdleAnim = SubResource( 5 )
+anims/upAnim = SubResource( 6 )
+anims/upIdleAnim = SubResource( 7 )
 
 [node name="Rain Bow" type="Sprite" parent="."]
 visible = false
@@ -291,29 +278,29 @@ hframes = 4
 frame = 1
 
 [node name="BowAnimPlayer" type="AnimationPlayer" parent="."]
-anims/BowCharge = SubResource( 5 )
-anims/BowFire = SubResource( 6 )
+anims/BowCharge = SubResource( 8 )
+anims/BowFire = SubResource( 9 )
 
 [node name="BowSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
 
 [node name="ScreenParticles" type="Particles2D" parent="."]
-material = SubResource( 7 )
+material = SubResource( 10 )
 emitting = false
 amount = 75
 one_shot = true
 visibility_rect = Rect2( -200, -200, 400, 400 )
 local_coords = false
-process_material = SubResource( 8 )
+process_material = SubResource( 11 )
 texture = ExtResource( 9 )
 
 [node name="RainParticles" type="Particles2D" parent="."]
-material = SubResource( 9 )
+material = SubResource( 12 )
 amount = 15
 lifetime = 0.2
 visibility_rect = Rect2( -200, -200, 400, 400 )
 local_coords = false
-process_material = SubResource( 10 )
+process_material = SubResource( 13 )
 texture = ExtResource( 10 )
 
 [node name="WalkingSFX" type="AudioStreamPlayer2D" parent="."]
