@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/powerFlowerActivate.png-89ef148dcc8a44f3ed3429f6d08210bf.stex"
+path="res://.import/propBush2.png-ef4a13badf1368e71eeb05c1e56a4c90.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/powerFlowerActivate.png"
-dest_files=[ "res://.import/powerFlowerActivate.png-89ef148dcc8a44f3ed3429f6d08210bf.stex" ]
+source_file="res://Art/propBush2.png"
+dest_files=[ "res://.import/propBush2.png-ef4a13badf1368e71eeb05c1e56a4c90.stex" ]
 
 [params]
 
