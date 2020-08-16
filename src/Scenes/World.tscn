@@ -297,6 +297,7 @@ partsBetweenUpdates = 1
 UI_Path = NodePath("../UI")
 tileMap_Path = NodePath("../TileMap")
 player_Path = NodePath("../Character")
+win_menu_path = NodePath("../Win Menu")
 
 [node name="ColorPickup" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1269.3, 164.242 )
