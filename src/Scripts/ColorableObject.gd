@@ -1,7 +1,6 @@
 extends Node2D
 
 export(String, "RED", "GREEN", "BLUE") var acceptableColor
-export(String, "propBush1", "propRoadPost", "propBench", "propBush2", "propCarB","propGarbage","propRecycle","propRock1", "propRock2","propTree1") var propType
 
 var colorFraction = 0
 var levelManager
@@ -20,7 +19,7 @@ func _ready():
 
 	var mat = get_node("Sprite").get_material().duplicate(true)
 	get_node("Sprite").set_material(mat)
-	get_node("Sprite").set_animation(propType)
+
 	var outlineColor
 	match acceptableColor:
 		"RED":

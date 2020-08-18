@@ -1,5 +1,6 @@
 extends Control
 
+var startedGame = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +14,9 @@ func _ready():
 #	pass
 
 func _on_PlayButton_pressed():
+	if startedGame:
+		return
+	startedGame = true
 	$ThunderSFX.play()
 	$MusicDelayTimer.start()
 	$FadeoutRect.transition_to("res://Scenes/World.tscn", 2)

@@ -1,0 +1,111 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Shaders/grayscaleWithOutline.tres" type="Shader" id=1]
+[ext_resource path="res://Art/propBush1.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/ColorableObject.gd" type="Script" id=3]
+[ext_resource path="res://Art/propRoadPost.png" type="Texture" id=4]
+[ext_resource path="res://Art/propBench.png" type="Texture" id=5]
+[ext_resource path="res://Art/propRock1.png" type="Texture" id=6]
+[ext_resource path="res://Art/propBush2.png" type="Texture" id=7]
+[ext_resource path="res://Art/propGarbage.png" type="Texture" id=8]
+[ext_resource path="res://Art/propRecycle.png" type="Texture" id=9]
+[ext_resource path="res://Art/propCarB.png" type="Texture" id=10]
+[ext_resource path="res://Art/propRock2.png" type="Texture" id=11]
+[ext_resource path="res://Art/propTree1.png" type="Texture" id=12]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/ColorLevel = 0.0
+shader_param/OutlineColor = null
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "propBush1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "propBench",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "propRoadPost",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "propBush2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "propRock1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "propRock2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "propCarB",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "propRecycle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "propGarbage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "propTree1",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12.888, 22.7713 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 14.25, 15.1001 )
+
+[node name="ColorableTree" type="Node2D" groups=[
+"colorable",
+]]
+script = ExtResource( 3 )
+acceptableColor = "BLUE"
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 0, -3.28427 )
+frames = SubResource( 3 )
+animation = "propRecycle"
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"colorable",
+]]
+position = Vector2( 0, -3.72971 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=[
+"colorable",
+]]
+position = Vector2( -0.388031, 5.751 )
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, -19.5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, -19.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 28.6001 )
+shape = SubResource( 4 )

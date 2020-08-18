@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Art/propStreetlightR.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12.8773, 10.1266 )
+
+[node name="Lightpost" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 17.3982, -51.6333 )
+texture = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 11.3521 )
+shape = SubResource( 1 )

@@ -21,17 +21,17 @@ func _ready():
 	top_level_control.visible=false
 	
 	#Connect button functionality
-	continue_button.connect("pressed", self, "_pause_toggle", [false])
-	main_menu_button.connect("pressed", self, "_main_menu_switch")
-	application_close_button.connect("pressed", self, "_quit_application")
+	var _err = continue_button.connect("pressed", self, "_pause_toggle", [false])
+	_err = main_menu_button.connect("pressed", self, "_main_menu_switch")
+	_err = application_close_button.connect("pressed", self, "_quit_application")
 	
 	#Connect button sound effects
-	continue_button.connect("mouse_entered", self, "_button_mouseover_sfx")
-	main_menu_button.connect("mouse_entered", self, "_button_mouseover_sfx")
-	application_close_button.connect("mouse_entered", self, "_button_mouseover_sfx")	
+	_err = continue_button.connect("mouse_entered", self, "_button_mouseover_sfx")
+	_err = main_menu_button.connect("mouse_entered", self, "_button_mouseover_sfx")
+	_err = application_close_button.connect("mouse_entered", self, "_button_mouseover_sfx")	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		_pause_toggle(not get_tree().paused)
 
@@ -40,7 +40,7 @@ func _pause_toggle(on: bool) -> void:
 	get_tree().paused = on
 
 func _main_menu_switch() -> void:
-	get_tree().change_scene(main_menu_scene)
+	var _err = get_tree().change_scene(main_menu_scene)
 	get_tree().paused = false
 
 func _quit_application() -> void:

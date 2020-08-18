@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Shaders/grayscaleWithOutline.tres" type="Shader" id=1]
+[ext_resource path="res://Scripts/ColorableObject.gd" type="Script" id=3]
+[ext_resource path="res://Art/propTree1.png" type="Texture" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/ColorLevel = 0.0
+shader_param/OutlineColor = null
+
+[node name="ColorableObject" type="Node2D" groups=[
+"colorable",
+]]
+script = ExtResource( 3 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, -82.5249 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 0, -82.5249 )
+texture = ExtResource( 12 )
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"colorable",
+]]
+position = Vector2( 0, -82.5249 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, -82.5249 )

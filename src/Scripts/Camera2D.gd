@@ -15,7 +15,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var dist = (player.global_position - global_position).length_squared()
 	if abs(dist) > 2000:
 		updateGoal(player.global_position - global_position)
