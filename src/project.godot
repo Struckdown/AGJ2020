@@ -24,6 +24,7 @@ config/icon="res://Art/powerFlowerB.png"
 
 GlobalMusicPlayer="*res://Scenes/GlobalMusicPlayer.tscn"
 GameManager="*res://Scripts/GameManager.gd"
+FadeOutManager="*res://Scenes/FadeOutManager.tscn"
 
 [display]
 

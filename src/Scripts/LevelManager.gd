@@ -21,10 +21,6 @@ func _ready():
 	tileMap = get_node(tileMap_Path)
 	player = get_node(player_Path)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func objectColored():
 	objectsColored += 1
