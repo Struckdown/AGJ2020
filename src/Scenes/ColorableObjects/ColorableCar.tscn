@@ -4,7 +4,7 @@
 [ext_resource path="res://Art/propCarB.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 100.053, 36.6894 )
+extents = Vector2( 89.4447, 36.3447 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 88.2546, 13.5645 )
@@ -20,6 +20,7 @@ texture = ExtResource( 2 )
 position = Vector2( 0, -11.7343 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( 0, 6.71752 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D" parent="." index="3"]

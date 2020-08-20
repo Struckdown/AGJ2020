@@ -242,12 +242,6 @@ top_level_control_node = NodePath("../Pause Menu/PauseMenuLayer/CenterContainer"
 [node name="Win Menu" parent="." instance=ExtResource( 15 )]
 time_node = NodePath("../StopwatchTimer")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 1.5, 1.5 )
-script = ExtResource( 13 )
-Player_Path = NodePath("../YSort/Character")
-
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Character" parent="YSort" instance=ExtResource( 1 )]
@@ -261,6 +255,26 @@ amount = 600
 lifetime = 5.0
 local_coords = false
 process_material = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="YSort/Character"]
+position = Vector2( -226.733, -24.3445 )
+current = true
+zoom = Vector2( 1.5, 1.5 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 6.0
+offset_h = 0.45
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+editor_draw_drag_margin = true
+script = ExtResource( 13 )
+Player_Path = NodePath("..")
+lookAheadOffset = Vector2( -0.679, 0 )
+lookAheadSmoothTime = 1.0
+lookCoolTime = 0.5
 
 [node name="ColorableObjects" type="YSort" parent="YSort"]
 
@@ -452,7 +466,7 @@ __meta__ = {
 shape = SubResource( 4 )
 
 [node name="Collision10" type="StaticBody2D" parent="BoundaryCollision"]
-position = Vector2( 193.304, -71.0485 )
+position = Vector2( 194.053, -34.34 )
 scale = Vector2( 0.25, 0.25 )
 __meta__ = {
 "_edit_group_": true
