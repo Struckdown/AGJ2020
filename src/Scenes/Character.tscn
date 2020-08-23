@@ -284,13 +284,13 @@ script = ExtResource( 1 )
 projectile = ExtResource( 3 )
 
 [node name="Raine" type="Sprite" parent="."]
-position = Vector2( 0, 10.3724 )
+position = Vector2( 0, -19.4776 )
 texture = ExtResource( 2 )
 hframes = 7
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 27.2922 )
+position = Vector2( 0, -2.55782 )
 shape = SubResource( 1 )
 
 [node name="RaineAnimPlayer" type="AnimationPlayer" parent="."]
@@ -313,12 +313,12 @@ anims/BowFire = SubResource( 9 )
 anims/bowCharged = SubResource( 10 )
 
 [node name="BowSFX" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 0, 2.34044 )
+position = Vector2( 0, -27.5096 )
 stream = ExtResource( 7 )
 
 [node name="ScreenParticles" type="Particles2D" parent="."]
 material = SubResource( 11 )
-position = Vector2( 0, 2.34044 )
+position = Vector2( 0, -27.5096 )
 emitting = false
 amount = 75
 one_shot = true
@@ -329,7 +329,7 @@ texture = ExtResource( 9 )
 
 [node name="RainParticles" type="Particles2D" parent="."]
 material = SubResource( 13 )
-position = Vector2( 0, 2.34044 )
+position = Vector2( 0, -27.5096 )
 amount = 15
 lifetime = 0.2
 visibility_rect = Rect2( -200, -200, 400, 400 )
@@ -338,5 +338,5 @@ process_material = SubResource( 14 )
 texture = ExtResource( 10 )
 
 [node name="WalkingSFX" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 0, 2.34044 )
+position = Vector2( 0, -27.5096 )
 stream = ExtResource( 11 )
