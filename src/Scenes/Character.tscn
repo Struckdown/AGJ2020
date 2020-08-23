@@ -303,6 +303,7 @@ anims/upIdleAnim = SubResource( 7 )
 
 [node name="Rain Bow" type="Sprite" parent="."]
 visible = false
+position = Vector2( 0, -18.1558 )
 texture = ExtResource( 6 )
 hframes = 4
 frame = 1
